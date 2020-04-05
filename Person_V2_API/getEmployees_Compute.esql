@@ -1,0 +1,12 @@
+
+--
+CREATE COMPUTE MODULE getEmployees_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		SET Environment.Variables.DBRESP.person[] = PASSTHRU('select * from wmbowner.person');
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON';
+		SET OutputRoot.JSON.Data = Environment.Variables.DBRESP;
+		RETURN TRUE;
+	END;
+END MODULE;

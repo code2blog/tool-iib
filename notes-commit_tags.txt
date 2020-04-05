@@ -1,0 +1,21 @@
+I will use tags to identify a unit of work. 
+
+Person_V2_API
+	per-1 -> expose rest api to interact with a database
+	
+Why do I use commit tags ?
+	Here JIRA-123. JIRA-124 are the sample commit tags. 
+	We frequently commit our changes. Each commit provides meaningful information to the developer as shown below. But you would not release every code commit to next higher environment. We commit our code changes when we want to switch to some other task ( coffee break ). You can safely resume your coding if you do frequent commits. But release and rollback actions occur on higher abstraction level such as a task in hpqc or jira. See two jira tickets given below. 
+
+		2019-Nov-24 Vishnu JIRA-123 added new field abc
+		2019-Nov-26 Vishnu JIRA-123 comments corrected for esql module def
+		2019-Nov-26 Vishnu JIRA-123 formatted esql
+		2019-Nov-29 Vishnu JIRA-124 changed input queue name
+		2019-Nov-29 Bala   JIRA-124 additional instances added
+		2019-Nov-30 Vishnu JIRA-124 moved node locations by using format option 
+
+	JIRA-123 was raised to add abc field to target system
+	JIRA-124 was raised to change source system queue. 
+
+
+
