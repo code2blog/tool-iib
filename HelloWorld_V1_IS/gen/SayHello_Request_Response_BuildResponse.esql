@@ -1,0 +1,14 @@
+BROKER SCHEMA gen
+
+CREATE COMPUTE MODULE SayHello_Request_Response_BuildResponse
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'XMLNSC';
+		DECLARE tns NAMESPACE 'http://www.example.org/HelloWorld/';
+		DECLARE hel NAMESPACE 'http://www.example.org/HelloWorld/';
+		SET OutputRoot.XMLNSC.tns:SayHelloResponse.(XMLNSC.NamespaceDecl)xmlns:tns = tns;
+		SET OutputRoot.XMLNSC.tns:SayHelloResponse.out = 'hello ' || InputRoot.XMLNSC.hel:SayHello.in;
+		RETURN TRUE;
+	END;
+END MODULE;

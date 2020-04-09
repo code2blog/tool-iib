@@ -1,0 +1,22 @@
+
+
+Importing file: C:\Users\Vishnu\IBM\IIBT10\workspace\java_proj_01\HelloWorld.wsdl
+
+Copying source WSDL HelloWorld.wsdl to HelloWorld.wsdl.
+The WSDL import will proceed with bindings HelloWorldSOAP.
+Creating wsdl schema document for file:///C:/Users/Vishnu/IBM/IIBT10/workspace/java_proj_01/HelloWorld.wsdl.
+Parsing wsdl binding {http://www.example.org/HelloWorld/}HelloWorldSOAP.
+Parsing wsdl binding input SayHello.
+Parsing wsdl binding output SayHello.
+Processing doc style for operation SayHello.
+Populating WSDL schema HelloWorld.xsd.
+Creating file HelloWorld.xsd in the workspace.
+Creating file HelloWorld_InlineSchema1.xsd in the workspace.
+
+Elapsed time processing this message definition file: 2.134 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+
