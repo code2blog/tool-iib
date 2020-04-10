@@ -9,6 +9,10 @@ HelloWorld_V1_APP
 HelloWorld_V1_IS
 	hwi-1 -> expose soap webservice
 	
+code2blog_dfdl_v2_slib
+	dfdl-1 -> create message model for fixed length data
+	
+	
 Why do I use commit tags ?
 	Here JIRA-123. JIRA-124 are the sample commit tags. 
 	We frequently commit our changes. Each commit provides meaningful information to the developer as shown below. But you would not release every code commit to next higher environment. We commit our code changes when we want to switch to some other task ( coffee break ). You can safely resume your coding if you do frequent commits. But release and rollback actions occur on higher abstraction level such as a task in hpqc or jira. See two jira tickets given below. 

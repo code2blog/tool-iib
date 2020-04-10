@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:ibmDfdlExtn="http://www.ibm.com/dfdl/extensions" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:recFixLengthFieldsFmt="http://www.ibm.com/dfdl/RecordFixLengthFieldFormat">
+
+    <xsd:import namespace="http://www.ibm.com/dfdl/RecordFixLengthFieldFormat" schemaLocation="IBMdefined/RecordFixLengthFieldFormat.xsd"/>
+    <xsd:annotation>
+		<xsd:appinfo source="http://www.ogf.org/dfdl/">
+			<dfdl:format encoding="{$dfdl:encoding}" escapeSchemeRef="" occursCountKind="fixed" ref="recFixLengthFieldsFmt:RecordFixLengthFieldsFormat"/>
+		</xsd:appinfo>
+	</xsd:annotation>
+
+	<xsd:element dfdl:lengthKind="delimited" ibmSchExtn:docRoot="true" name="fixed_length_with_trailer">
+		<xsd:complexType>
+			<xsd:sequence dfdl:separator="%CR;%LF;%WSP*;" dfdl:separatorSuppressionPolicy="anyEmpty">
+				<xsd:element dfdl:initiator="head_" dfdl:lengthKind="delimited" name="header">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element dfdl:length="10" ibmDfdlExtn:sampleValue="head_valu1" name="head_elem1" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element dfdl:initiator="body_" dfdl:lengthKind="delimited" dfdl:occursCountKind="implicit" maxOccurs="unbounded" name="body">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element dfdl:length="10" ibmDfdlExtn:sampleValue="body_valu1" name="body_elem1" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element dfdl:initiator="trail_" dfdl:lengthKind="delimited" name="trailer"> 
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element dfdl:length="13" ibmDfdlExtn:sampleValue="trailer_valu1" name="trailer_elem1" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+</xsd:schema>

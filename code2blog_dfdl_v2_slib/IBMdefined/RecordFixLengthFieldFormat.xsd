@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!-- ******************************************************************
+	* Licensed Materials - Property of IBM
+	*
+	* (C) Copyright IBM Corp. 2011, 2014
+	*
+	* US Government Users Restricted Rights - Use, duplication, or
+	* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+	*
+	* Version 1.1 	RecordFixLengthFieldFormat.xsd
+	*
+	* This DFDL schema is supplied by IBM. It provides a set of DFDL property values
+	* and other DFDL constructs to assist in the creation of DFDL schemas that model
+	* text data format that consists of a number of records or segments having an optional
+	* header, repeating body and optional trailer. The record fields have a fixed length.   
+	* 
+	* Example use: 
+	* 
+	*    <xsd:import namespace="http://www.ibm.com/dfdl/RecordFixLengthFieldFormat" schemaLocation="RecordFixLengthFieldFormat.xsd"/>
+	******************************************************************* -->
+	
+
+ 
+<xsd:schema
+	targetNamespace="http://www.ibm.com/dfdl/RecordFixLengthFieldFormat"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:tns="http://www.ibm.com/dfdl/RecordFixLengthFieldFormat">
+	<xsd:annotation>
+		<xsd:appinfo source="http://www.ogf.org/dfdl/">
+
+			<dfdl:defineEscapeScheme name="RecordEscapeScheme">
+				<dfdl:escapeScheme escapeKind="escapeBlock" escapeBlockStart='"' escapeBlockEnd='"' escapeCharacter='"'
+					escapeEscapeCharacter='"' extraEscapedCharacters='%#x0D; %#x0A;' generateEscapeBlock="whenNeeded"></dfdl:escapeScheme>
+			</dfdl:defineEscapeScheme>
+
+
+			<dfdl:defineFormat name="RecordFixLengthFieldsFormat">
+				<dfdl:format encoding="US-ASCII" ignoreCase="no" byteOrder="bigEndian" representation="text" textPadKind="none"
+					textStringJustification="left" truncateSpecifiedLengthString="no" decimalSigned="yes" textNumberCheckPolicy="lax"
+					textNumberJustification="right" textZonedSignStyle="asciiStandard" textBooleanJustification="left" sequenceKind="ordered"
+					choiceLengthKind="implicit" separatorPolicy="required" separatorPosition="infix"
+					documentFinalTerminatorCanBeMissing="no" lengthKind="explicit" textTrimKind="padChar"
+					textStandardBase="10" textStandardDecimalSeparator="." textStandardExponentCharacter="E" alignment="1" alignmentUnits="bytes" leadingSkip="0" trailingSkip="0" fillByte="0" textStringPadCharacter="%SP;"
+					initiatedContent="no" textNumberPadCharacter="%SP;" textBooleanPadCharacter="%SP;" textNumberRep="standard"
+					textStandardGroupingSeparator="," textStandardZeroRep="" textNumberRoundingMode="roundUp" nilValueDelimiterPolicy="none"
+					emptyValueDelimiterPolicy="none" escapeSchemeRef="tns:RecordEscapeScheme" lengthUnits="bytes" textStandardInfinityRep="Inf" textStandardNaNRep="NaN" textNumberRounding="pattern" calendarPatternKind="implicit" calendarPattern="yyyy-MM-dd'T'HH:mm:ss" calendarCheckPolicy="lax" calendarTimeZone="UTC" calendarObserveDST="yes" calendarFirstDayOfWeek="Monday" calendarDaysInFirstWeek="4" calendarCenturyStart="53" calendarLanguage="en-US" textCalendarJustification="left" textBooleanTrueRep="true" textBooleanFalseRep="false" textCalendarPadCharacter="%SP;" 
+					separator="" initiator="" terminator="" outputNewLine="%CR;%LF;" binaryFloatRep="ieee" textBidi="no" floating="no" >
+				</dfdl:format>
+			</dfdl:defineFormat>
+			
+			
+		</xsd:appinfo>
+	</xsd:annotation>
+</xsd:schema>
