@@ -1,0 +1,33 @@
+
+--
+BROKER SCHEMA gen
+
+/*
+========================================================================================
+PROCEDURE Split
+========================================================================================
+Splits S on Delim into an array in Env (Environment.Split.Array[])
+Removes Environment.Split before refilling it
+*/
+CREATE PROCEDURE Split (IN S CHARACTER, IN Env REFERENCE, IN Delim CHARACTER)
+BEGIN
+	DECLARE P INTEGER;
+	DECLARE Idx INTEGER 1;
+	SET Env.Split = NULL;
+	--
+	IF S IS NULL THEN
+		RETURN;
+	END IF;
+	--
+	REPEAT
+		SET P = POSITION(Delim IN S);
+		IF P = 0 THEN
+			SET Env.Split.Array[Idx] = S;
+		ELSE
+			SET Env.Split.Array[Idx] = LEFT(S, P - 1);
+			SET S = SUBSTRING(S FROM P + LENGTH(Delim));
+			SET Idx = Idx + 1;
+		END IF;
+		UNTIL P = 0
+	END REPEAT;
+END;

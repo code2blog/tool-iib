@@ -1,0 +1,19 @@
+
+--
+BROKER SCHEMA gen
+
+CREATE COMPUTE MODULE splitString_Request_Response_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- pass input arguments to Split function and it will return an array output under OutputLocalEnvironment.Variables.Split
+		CREATE FIELD OutputLocalEnvironment.Variables;
+		CALL Split(InputRoot.XMLNSC.*:splitString.input1, OutputLocalEnvironment.Variables, InputRoot.XMLNSC.*:splitString.delimiter); 
+		-- create output structure and reply to invoker
+		SET OutputRoot.Properties = InputRoot.Properties;
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'XMLNSC';
+		DECLARE tns NAMESPACE 'http://EsqlFunctions_V1_IS';
+		SET OutputRoot.XMLNSC.tns:splitStringResponse.(XMLNSC.NamespaceDecl)xmlns:tns = tns;
+		SET OutputRoot.XMLNSC.tns:splitStringResponse.output1 = OutputLocalEnvironment.Variables.Split;
+		RETURN TRUE;
+	END;
+END MODULE;

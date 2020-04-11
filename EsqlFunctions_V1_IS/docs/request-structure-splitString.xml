@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:splitString xmlns:tns="http://EsqlFunctions_V1_IS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://EsqlFunctions_V1_IS ../EsqlFunctions_V1_IS_InlineSchema1.xsd ">
+  <input1>input1</input1>
+  <delimter>delimter</delimter>
+</tns:splitString>

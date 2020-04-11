@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:splitStringResponse xmlns:tns="http://EsqlFunctions_V1_IS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://EsqlFunctions_V1_IS ../EsqlFunctions_V1_IS_InlineSchema1.xsd ">
+  <output1>output1</output1>
+</tns:splitStringResponse>
