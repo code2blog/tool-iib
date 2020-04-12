@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://NodeFeatures_V1_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://NodeFeatures_V1_IS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:element ibmSchExtn:docRoot="true" name="xsltDemo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="input1" nillable="true">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="cd" minOccurs="1" maxOccurs="10">
+                                <xsd:complexType>
+                                	<xsd:sequence>
+                                		<xsd:element name="title"
+                                			type="xsd:string">
+                                		</xsd:element>
+                                		<xsd:element name="artist"
+                                			type="xsd:string">
+                                		</xsd:element>
+                                	</xsd:sequence>
+                                </xsd:complexType>
+            			</xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element ibmSchExtn:docRoot="true" name="xsltDemoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="output1" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>

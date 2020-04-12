@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="NodeFeatures_V1_IS" targetNamespace="http://NodeFeatures_V1_IS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://NodeFeatures_V1_IS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="NodeFeatures_V1_IS_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="NodeFeatures_V1_ISHttpBinding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    
+        <xsd:schema targetNamespace="http://NodeFeatures_V1_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+      <xsd:include schemaLocation="NodeFeatures_V1_IS_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="xsltDemoRequestMsg">
+    <wsdl:part element="tns:xsltDemo" name="xsltDemoParameters"/>
+  </wsdl:message>
+  <wsdl:message name="xsltDemoResponseMsg">
+    <wsdl:part element="tns:xsltDemoResponse" name="xsltDemoResult"/>
+  </wsdl:message>
+  <wsdl:portType name="NodeFeatures_V1_IS">
+    <wsdl:operation name="xsltDemo">
+      <wsdl:input message="tns:xsltDemoRequestMsg" name="xsltDemoRequest"/>
+      <wsdl:output message="tns:xsltDemoResponseMsg" name="xsltDemoResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NodeFeatures_V1_ISHttpBinding" type="tns:NodeFeatures_V1_IS">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="xsltDemo">
+      <soap:operation soapAction="http://NodeFeatures_V1_IS/xsltDemo"/>
+      <wsdl:input name="xsltDemoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="xsltDemoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    </wsdl:binding>
+  <wsdl:service name="NodeFeatures_V1_ISHttpService">
+    <wsdl:port binding="tns:NodeFeatures_V1_ISHttpBinding" name="NodeFeatures_V1_ISHttpPort">
+      <soap:address location="http://localhost:7800/NodeFeatures_V1_IS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

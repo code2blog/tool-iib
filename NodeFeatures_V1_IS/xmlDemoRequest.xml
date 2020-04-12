@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:xsltDemo xmlns:tns="http://NodeFeatures_V1_IS"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://NodeFeatures_V1_IS NodeFeatures_V1_IS_InlineSchema1.xsd ">
+	<input1>
+		<cd>
+			<title>title01</title>
+			<artist>artist01</artist>
+		</cd>
+		<cd>
+			<title>title02</title>
+			<artist>artist02</artist>
+		</cd>
+		<cd>
+			<title>title03</title>
+			<artist>artist03</artist>
+		</cd>
+	</input1>
+</tns:xsltDemo>

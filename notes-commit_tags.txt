@@ -14,6 +14,9 @@ code2blog_dfdl_v2_slib
 	
 EsqlFunctions_V1_IS
 	ef-1 -> demo programming in esql
+
+NodeFeatures_V1_IS
+	nf-1 -> expose webservice to demo xslt feature
 	
 Why do I use commit tags ?
 	Here JIRA-123. JIRA-124 are the sample commit tags. 

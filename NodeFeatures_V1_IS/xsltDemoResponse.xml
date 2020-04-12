@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:xsltDemoResponse xmlns:tns="http://NodeFeatures_V1_IS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://NodeFeatures_V1_IS NodeFeatures_V1_IS_InlineSchema1.xsd ">
+  <output1>output1</output1>
+</tns:xsltDemoResponse>

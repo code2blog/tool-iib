@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmLabel.msgnode="ComIbmLabel.msgnode" xmlns:ComIbmRouteToLabel.msgnode="ComIbmRouteToLabel.msgnode" xmlns:ComIbmSOAPInput.msgnode="ComIbmSOAPInput.msgnode" xmlns:ComIbmSOAPReply.msgnode="ComIbmSOAPReply.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:gen_NodeFeatures_V1_ISInputCatchHandler.subflow="gen/NodeFeatures_V1_ISInputCatchHandler.subflow" xmlns:gen_NodeFeatures_V1_ISInputFailureHandler.subflow="gen/NodeFeatures_V1_ISInputFailureHandler.subflow"
+    xmlns:gen_NodeFeatures_V1_ISInputHTTPTimeoutHandler.subflow="gen/NodeFeatures_V1_ISInputHTTPTimeoutHandler.subflow" xmlns:gen_xsltDemo_Request_Response.subflow="gen/xsltDemo_Request_Response.subflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="gen/NodeFeatures_V1_IS.msgflow" nsPrefix="gen_NodeFeatures_V1_IS.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="NodeFeatures_V1_IS" bundleName="gen/NodeFeatures_V1_IS" pluginId="NodeFeatures_V1_IS"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/NodeFeatures_V1_IS/icons/full/obj16/NodeFeatures_V1_IS.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/NodeFeatures_V1_IS/icons/full/obj30/NodeFeatures_V1_IS.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmSOAPInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="20,100" wsdlFileName="NodeFeatures_V1_IS.wsdl" selectedPortType="NodeFeatures_V1_IS" selectedBinding="NodeFeatures_V1_ISHttpBinding" selectedPort="NodeFeatures_V1_ISHttpPort" targetNamespace="http://NodeFeatures_V1_IS" useHTTPTransport="true" urlSelector="/NodeFeatures_V1_IS" allowQueryWSDL="true" extractSOAPBody="true">
+        <translation xmi:type="utility:ConstantString" string="SOAP Input"/>
+      </nodes>
+      <nodes xmi:type="ComIbmRouteToLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="220,230">
+        <translation xmi:type="utility:ConstantString" string="Route To Label"/>
+      </nodes>
+      <nodes xmi:type="ComIbmSOAPReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="830,220">
+        <translation xmi:type="utility:ConstantString" string="SOAP Reply"/>
+      </nodes>
+      <nodes xmi:type="gen_NodeFeatures_V1_ISInputFailureHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="635,88">
+        <translation xmi:type="utility:ConstantString" string="NodeFeatures_V1_ISInputFailureHandler"/>
+      </nodes>
+      <nodes xmi:type="gen_NodeFeatures_V1_ISInputHTTPTimeoutHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="515,178">
+        <translation xmi:type="utility:ConstantString" string="NodeFeatures_V1_ISInputHTTPTimeoutHandler"/>
+      </nodes>
+      <nodes xmi:type="gen_NodeFeatures_V1_ISInputCatchHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_6" location="455,223">
+        <translation xmi:type="utility:ConstantString" string="NodeFeatures_V1_ISInputCatchHandler"/>
+      </nodes>
+      <nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="220,310" labelName="xsltDemo">
+        <translation xmi:type="utility:ConstantString" string="xsltDemo"/>
+      </nodes>
+      <nodes xmi:type="gen_xsltDemo_Request_Response.subflow:FCMComposite_1" xmi:id="FCMComposite_1_8" location="370,310">
+        <translation xmi:type="utility:ConstantString" string="xsltDemo_Request_Response"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.timeout" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.catch" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer/>
+    <stickyBoard>
+      <stickyNote location="5,5">
+        <body xmi:type="utility:ConstantString" string="This is an automatically generated message flow.&#xA;Any changes you make may be overwritten without warning.&#xA;"/>
+      </stickyNote>
+    </stickyBoard>
+  </eClassifiers>
+</ecore:EPackage>
