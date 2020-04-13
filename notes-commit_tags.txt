@@ -17,6 +17,9 @@ EsqlFunctions_V1_IS
 
 NodeFeatures_V1_IS
 	nf-1 -> expose webservice to demo xslt feature
+
+CSV_MFP
+	csv-1 : change xml message to csv format
 	
 Why do I use commit tags ?
 	Here JIRA-123. JIRA-124 are the sample commit tags. 

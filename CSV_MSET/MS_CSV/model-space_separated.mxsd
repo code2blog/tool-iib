@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="record" type="xsd:string"/>
+  <xsd:element name="root">
+        <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/root;XSDElementDeclaration=1$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+        <xsd:complexType>
+            <xsd:annotation>
+        <xsd:appinfo source="WMQI_APPINFO">
+          <tdsStructRep dataElementSeparation="AllElementsDelimited" delimiter="&lt;CR&gt;&lt;LF&gt;" messageSetDefaultRep="Text1"/>
+        </xsd:appinfo>
+      </xsd:annotation>
+            <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" ref="line_of_data">
+          <xsd:annotation>
+            <xsd:appinfo source="WMQI_APPINFO">
+              <tdsInclRep messageSetDefaultRep="Text1" repeatingElementDelimiter="&lt;CR&gt;&lt;LF&gt;"/>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="line_of_data">
+    <xsd:complexType>
+            <xsd:annotation>
+        <xsd:appinfo source="WMQI_APPINFO">
+          <tdsStructRep dataElementSeparation="AllElementsDelimited" delimiter="," messageSetDefaultRep="Text1"/>
+        </xsd:appinfo>
+      </xsd:annotation>
+            <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" ref="record"/>
+        <xsd:element ref="last_record"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="last_record" type="xsd:string"/>
+</xsd:schema>

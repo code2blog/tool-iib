@@ -1,0 +1,10 @@
+
+--
+CREATE COMPUTE MODULE XmlToCsv_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;
+		SET OutputRoot.Properties.MessageFormat = 'Text1';
+		RETURN TRUE;
+	END;
+END MODULE;

@@ -1,0 +1,10 @@
+<root>
+	<line_of_data>
+		<record>hello</record>
+		<last_record>world</last_record>
+	</line_of_data>
+	<line_of_data>
+		<record>hi</record>
+		<last_record>vishnu</last_record>
+	</line_of_data>
+</root>

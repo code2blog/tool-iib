@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="record" type="xsd:string"/>
+  <xsd:element name="root">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" ref="line_of_data"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="line_of_data">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="record"/>
+        <xsd:element ref="last_record"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="last_record" type="xsd:string"/>
+</xsd:schema>
