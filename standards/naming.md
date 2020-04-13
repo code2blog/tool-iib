@@ -14,4 +14,14 @@ Project naming should follow this template
 	Message flow project -> _MFP
 	Message set project -> _MSP
 	
+Naming Message Set or other project types
+	Project Type indicator can be placed at end of the name such as MyAmazingProject_MSET or it can be placed at the start such as MSET_MyAmazingProject.
+	Former is preferred as different project types for one business functionality such as PurchaseOrder will appear in close proxity. Sample: 
+		PurchaseOrder_APP
+		PurchaseOrder_JP
+		PurchaseOrder_MSET
+	You would not want to see project types in close proximity as shown below
+		MSET_Warranty
+		MSET_PurchaseOrder
+		MSET_Insurance
 </pre>
