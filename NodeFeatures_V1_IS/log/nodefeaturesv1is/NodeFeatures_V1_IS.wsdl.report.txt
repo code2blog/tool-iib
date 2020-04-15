@@ -1,0 +1,16 @@
+
+
+Importing file: C:\vishnu\app_group\repository\github_code2blog\tool-iib\NodeFeatures_V1_IS\NodeFeatures_V1_IS.wsdl
+
+The WSDL import will proceed with bindings NodeFeatures_V1_ISHttpBinding.
+Creating wsdl schema document for platform:/resource/NodeFeatures_V1_IS/NodeFeatures_V1_IS.wsdl.
+Parsing wsdl binding {http://NodeFeatures_V1_IS}NodeFeatures_V1_ISHttpBinding.
+Parsing wsdl binding input xsltDemo.
+Parsing wsdl binding output xsltDemo.
+Parsing wsdl binding input mappingDemo.
+Parsing wsdl binding output mappingDemo.
+Processing doc style for operation xsltDemo.
+Processing doc style for operation mappingDemo.
+Populating WSDL schema NodeFeatures_V1_IS.xsd.
+Creating file NodeFeatures_V1_IS.xsd in the workspace.
+Copying source WSDL NodeFeatures_V1_IS.wsdl to NodeFeatures_V1_IS.wsdl.

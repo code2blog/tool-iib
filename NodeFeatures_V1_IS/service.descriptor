@@ -7,6 +7,11 @@
           <service:flow location="gen/xsltDemo_Request_Response.subflow" type="Request_Response"/>
         </service:flows>
       </service:operation>
+      <service:operation name="mappingDemo" type="request-response">
+        <service:flows>
+          <service:flow location="gen/mappingDemo_Request_Response.subflow" type="Request_Response"/>
+        </service:flows>
+      </service:operation>
     </service:operations>
     <service:errors>
       <service:flows>

@@ -16,8 +16,9 @@ EsqlFunctions_V1_IS
 	ef-1 -> demo programming in esql
 
 NodeFeatures_V1_IS
-	nf-1 -> expose webservice to demo xslt feature
-
+	nf-1 : expose webservice to demo xslt feature
+	nf-2 : demo the use of mapping node
+	
 CSV_MFP
 	csv-1 : change xml message to csv format
 	

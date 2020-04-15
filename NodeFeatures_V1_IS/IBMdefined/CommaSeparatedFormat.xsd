@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- ******************************************************************
+	* Licensed Materials - Property of IBM
+	*
+	* (C) Copyright IBM Corp. 2011
+	*
+	* US Government Users Restricted Rights - Use, duplication, or
+	* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+	*
+	* Version 1.0 	CommaSeparatedFormat.xsd
+	*
+	* This DFDL schema is supplied by IBM. It provides a set of DFDL property values
+	* and other DFDL constructs to assist in the creation of DFDL schemas that model
+	* Comma Separated Values data, a delimited text format commonly used as an export
+	* format by spreadsheets and databases.  
+	* 
+	* Example use: 
+	* 
+	*  <xsd:import namespace="http://www.ibm.com/dfdl/CommaSeparatedFormat" schemaLocation="CommaSeparatedFormat.xsd"/>
+	******************************************************************* --><xsd:schema targetNamespace="http://www.ibm.com/dfdl/CommaSeparatedFormat" xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" xmlns:tns="http://www.ibm.com/dfdl/CommaSeparatedFormat" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+	<xsd:annotation>
+		<xsd:appinfo source="http://www.ogf.org/dfdl/">
+
+			<dfdl:defineEscapeScheme name="CSVEscapeScheme">
+				<dfdl:escapeScheme escapeBlockEnd="&quot;" escapeBlockStart="&quot;" escapeCharacter="&quot;" escapeEscapeCharacter="&quot;" escapeKind="escapeBlock" extraEscapedCharacters=", %#x0D; %#x0A;" generateEscapeBlock="whenNeeded">
+				</dfdl:escapeScheme>
+			</dfdl:defineEscapeScheme>
+
+			<dfdl:defineFormat name="CommaSeparatedFormat">
+				<dfdl:format alignment="1" alignmentUnits="bytes" binaryFloatRep="ieee" byteOrder="bigEndian" calendarCenturyStart="53" calendarCheckPolicy="lax" calendarDaysInFirstWeek="4" calendarFirstDayOfWeek="Monday" calendarLanguage="en-US" calendarObserveDST="yes" calendarPattern="yyyy-MM-dd'T'HH:mm:ss" calendarPatternKind="implicit" calendarTimeZone="UTC" choiceLengthKind="implicit" decimalSigned="yes" documentFinalTerminatorCanBeMissing="no" emptyValueDelimiterPolicy="none" encoding="UTF-8" escapeSchemeRef="tns:CSVEscapeScheme" fillByte="0" floating="no" ignoreCase="no" initiatedContent="no" initiator="" leadingSkip="0" lengthKind="delimited" lengthUnits="characters" nilValueDelimiterPolicy="none" occursCountKind="implicit" outputNewLine="%CR;%LF;" representation="text" separator="%SP;" separatorPosition="infix" separatorSuppressionPolicy="trailingEmpty" sequenceKind="ordered" terminator="" textBidi="no" textBooleanFalseRep="false" textBooleanJustification="left" textBooleanPadCharacter="%SP;" textBooleanTrueRep="true" textCalendarJustification="left" textCalendarPadCharacter="%SP;" textNumberCheckPolicy="lax" textNumberJustification="right" textNumberPadCharacter="%SP;" textNumberRep="standard" textNumberRounding="pattern" textNumberRoundingMode="roundUp" textPadKind="none" textStandardBase="10" textStandardDecimalSeparator="." textStandardExponentRep="E" textStandardGroupingSeparator=" " textStandardInfinityRep="Inf" textStandardNaNRep="NaN" textStandardZeroRep="" textStringJustification="left" textStringPadCharacter="%SP;" textTrimKind="padChar" textZonedSignStyle="asciiStandard" trailingSkip="0" truncateSpecifiedLengthString="no">
+				</dfdl:format>
+			</dfdl:defineFormat>
+			
+			
+		</xsd:appinfo>
+	</xsd:annotation>
+</xsd:schema>

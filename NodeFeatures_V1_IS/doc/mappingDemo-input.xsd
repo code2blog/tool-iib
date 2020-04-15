@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://NodeFeatures_V1_IS" xmlns:Q1="http://NodeFeatures_V1_IS">
+  <xsd:element name="trailer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:EndOfFile"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="mappingDemoInput">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:Header1"/>
+        <xsd:element ref="Q1:Header2"/>
+        <xsd:element maxOccurs="unbounded" ref="Q1:Details"/>
+        <xsd:element ref="Q1:trailer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="OrderID" type="xsd:string"/>
+  <xsd:element name="Header1">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:StartOfFile"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Details">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:RechargeValue"/>
+        <xsd:element ref="Q1:Rechargeperiod"/>
+        <xsd:element ref="Q1:Expirydate"/>
+        <xsd:element ref="Q1:Null"/>
+        <xsd:element ref="Q1:PINNumber"/>
+        <xsd:element ref="Q1:SerialNumber"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Header2">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:OrderID"/>
+        <xsd:element ref="Q1:PackagesCount"/>
+        <xsd:element ref="Q1:VouchersPerpackage"/>
+        <xsd:element ref="Q1:VouchersCount"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Rechargeperiod" type="xsd:string"/>
+  <xsd:element name="VouchersPerpackage" type="xsd:string"/>
+  <xsd:element name="RechargeValue" type="xsd:string"/>
+  <xsd:element name="PackagesCount" type="xsd:string"/>
+  <xsd:element name="SerialNumber" type="xsd:string"/>
+  <xsd:element name="VouchersCount" type="xsd:string"/>
+  <xsd:element name="PINNumber" type="xsd:string"/>
+  <xsd:element name="Expirydate" type="xsd:string"/>
+  <xsd:element name="EndOfFile" type="xsd:string"/>
+  <xsd:element name="Null" type="xsd:string"/>
+  <xsd:element name="StartOfFile" type="xsd:string"/>
+</xsd:schema>
