@@ -1,47 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://NodeFeatures_V1_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://NodeFeatures_V1_IS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
- <xsd:include schemaLocation="doc/mappingDemo-input.xsd"/>
- <xsd:include schemaLocation="doc/mappingDemo-output-space_separated.xsd"/>
-      <xsd:element ibmSchExtn:docRoot="true" name="xsltDemo">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="input1" nillable="true">
-            	<xsd:complexType>
-            		<xsd:sequence>
-            			<xsd:element maxOccurs="10" minOccurs="1" name="cd">
-                                <xsd:complexType>
-                                	<xsd:sequence>
-                                		<xsd:element name="title" type="xsd:string">
-                                		</xsd:element>
-                                		<xsd:element name="artist" type="xsd:string">
-                                		</xsd:element>
-                                	</xsd:sequence>
-                                </xsd:complexType>
-            			</xsd:element>
-            		</xsd:sequence>
-            	</xsd:complexType>
-        </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element ibmSchExtn:docRoot="true" name="xsltDemoResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="output1" nillable="true" type="xsd:string"/>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-    <xsd:element ibmSchExtn:docRoot="true" name="mappingDemoInputParameter" nillable="true">
-    <xsd:complexType>
-      <xsd:simpleContent>
-        <xsd:extension base="xsd:string"/>
-      </xsd:simpleContent>
-    </xsd:complexType>
-  </xsd:element>
-    <xsd:element ibmSchExtn:docRoot="true" name="mappingDemoOutputParameter" nillable="true">
-    <xsd:complexType>
-      <xsd:simpleContent>
-        <xsd:extension base="xsd:string"/>
-      </xsd:simpleContent>
-    </xsd:complexType>
-  </xsd:element>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://NodeFeatures_V1_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://NodeFeatures_V1_IS"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<xsd:include schemaLocation="doc/mappingDemo-input.xsd"></xsd:include>
+	<xsd:include schemaLocation="doc/mappingDemo-output-space_separated.xsd"></xsd:include>
+	
+	<xsd:element ibmSchExtn:docRoot="true" name="xsltDemo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="input1" nillable="true">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element maxOccurs="10" minOccurs="1" name="cd">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="title" type="xsd:string">
+										</xsd:element>
+										<xsd:element name="artist" type="xsd:string">
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element ibmSchExtn:docRoot="true" name="xsltDemoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="output1" nillable="true" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element ibmSchExtn:docRoot="true" name="mappingDemoRequest" nillable="true">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="tns:mappingDemoInput"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element ibmSchExtn:docRoot="true" name="mappingDemoResponse" nillable="true">		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="tns:mappingDemoOutput"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
 </xsd:schema>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><xsd:schema  targetNamespace="http://NodeFeatures_V1_IS" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:csv="http://www.ibm.com/dfdl/CommaSeparatedFormat" xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" xmlns:ibmDfdlExtn="http://www.ibm.com/dfdl/extensions" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://NodeFeatures_V1_IS" xmlns:csv="http://www.ibm.com/dfdl/CommaSeparatedFormat" xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" xmlns:ibmDfdlExtn="http://www.ibm.com/dfdl/extensions" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
 
  
     <xsd:import namespace="http://www.ibm.com/dfdl/CommaSeparatedFormat" schemaLocation="../IBMdefined/CommaSeparatedFormat.xsd"/>
@@ -12,13 +12,13 @@
 	<xsd:element ibmSchExtn:docRoot="true" name="mappingDemoOutput">
 		<xsd:complexType>
 			<xsd:sequence dfdl:separator="">
-				<xsd:element dfdl:occursCountKind="implicit" dfdl:terminator="%CR;%LF;%WSP*;" maxOccurs="unbounded" name="record">
+				<xsd:element dfdl:occursCountKind="implicit" dfdl:terminator="%CR;%LF;%WSP*;" maxOccurs="unbounded" minOccurs="0" name="record">
 					<xsd:complexType>
 						<xsd:sequence dfdl:separatorSuppressionPolicy="trailingEmpty">
-                            							                            <xsd:element ibmDfdlExtn:sampleValue="value1" maxOccurs="unbounded" minOccurs="0" name="field1" type="xsd:string"/>
-                            																				                        <xsd:element ibmDfdlExtn:sampleValue="value2" name="field2" type="xsd:string"/>
-                            <xsd:element ibmDfdlExtn:sampleValue="value3" name="field3" type="xsd:string"/>
-                            <xsd:element ibmDfdlExtn:sampleValue="value4" name="field4" type="xsd:string"/>
+							<xsd:element ibmDfdlExtn:sampleValue="value1" maxOccurs="unbounded" minOccurs="0" name="field1" type="xsd:string"/>
+							<xsd:element ibmDfdlExtn:sampleValue="value2" maxOccurs="unbounded" minOccurs="0" name="field2" type="xsd:string"/>
+                            <xsd:element ibmDfdlExtn:sampleValue="value3" maxOccurs="unbounded" minOccurs="0" name="field3" type="xsd:string"/>
+                            <xsd:element ibmDfdlExtn:sampleValue="value4" maxOccurs="unbounded" minOccurs="0" name="field4" type="xsd:string"/>
                         </xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>				

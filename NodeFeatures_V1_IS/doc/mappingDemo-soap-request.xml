@@ -1,0 +1,45 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nod="http://NodeFeatures_V1_IS">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <nod:mappingDemoRequest>
+<mappingDemoInput xmlns="http://NodeFeatures_V1_IS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Header1>
+    <StartOfFile xsi:type="xs:string">Start of file TEST____TEST.000000000009995.20150520.1444</StartOfFile>
+  </Header1>
+  <Header2>
+    <OrderID xsi:type="xs:string">00000000009,995</OrderID>
+    <PackagesCount xsi:type="xs:string">000000</PackagesCount>
+    <VouchersPerpackage xsi:type="xs:string">00</VouchersPerpackage>
+    <VouchersCount xsi:type="xs:string">0000100</VouchersCount>
+  </Header2>
+  <Details>
+    <RechargeValue xsi:type="xs:string">002K</RechargeValue>
+    <Rechargeperiod xsi:type="xs:string">000</Rechargeperiod>
+    <Expirydate xsi:type="xs:string">21.01.2020</Expirydate>
+    <Null xsi:type="xs:string">00000</Null>
+    <PINNumber xsi:type="xs:string">1</PINNumber>
+    <SerialNumber xsi:type="xs:string">   98</SerialNumber>
+  </Details>
+  <Details>
+    <RechargeValue xsi:type="xs:string">002K</RechargeValue>
+    <Rechargeperiod xsi:type="xs:string">000</Rechargeperiod>
+    <Expirydate xsi:type="xs:string">21.01.2020</Expirydate>
+    <Null xsi:type="xs:string">00000</Null>
+    <PINNumber xsi:type="xs:string">2</PINNumber>
+    <SerialNumber xsi:type="xs:string">   99</SerialNumber>
+  </Details>
+  <Details>
+    <RechargeValue xsi:type="xs:string">002K</RechargeValue>
+    <Rechargeperiod xsi:type="xs:string">000</Rechargeperiod>
+    <Expirydate xsi:type="xs:string">21.01.2020</Expirydate>
+    <Null xsi:type="xs:string">00000</Null>
+    <PINNumber xsi:type="xs:string">3</PINNumber>
+    <SerialNumber xsi:type="xs:string">   100</SerialNumber>
+  </Details>
+  <trailer>
+    <EndOfFile xsi:type="xs:string">End of file</EndOfFile>
+  </trailer>
+</mappingDemoInput>
+      </nod:mappingDemoRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

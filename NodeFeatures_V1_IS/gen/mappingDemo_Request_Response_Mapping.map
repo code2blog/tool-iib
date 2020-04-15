@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="gen" version="8.0.5.0" xmlns:map="gen">
-    <input path="/doc/mappingDemo-input.xsd"/>
-    <output path="/doc/mappingDemo-output-space_separated.xsd"/>
+    <input path="/NodeFeatures_V1_IS_InlineSchema1.xsd"/>
+    <output path="/NodeFeatures_V1_IS_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://NodeFeatures_V1_IS"/>
+    </namespaces>
     <generation engine="xquery"/>
     <mappingDeclaration name="mappingDemo_Request_Response_Mapping">
-        <input namespace="http://NodeFeatures_V1_IS" path="mb:msg(mappingDemoInput,assembly,XMLNSC,Properties)" var="MessageAssembly"/>
-        <output namespace="http://NodeFeatures_V1_IS" path="mb:msg(mappingDemoOutput,assembly,DFDL,Properties)" var="MessageAssembly1"/>
+        <input namespace="http://NodeFeatures_V1_IS" path="mb:msg(mappingDemoRequest,assembly,XMLNSC,Properties)" var="MessageAssembly"/>
+        <output namespace="http://NodeFeatures_V1_IS" path="mb:msg(mappingDemoResponse,assembly,XMLNSC,Properties)" var="MessageAssembly2"/>
         <move>
             <input path="$MessageAssembly/Properties"/>
-            <output path="$MessageAssembly1/Properties"/>
-            <override>
-                <assign value="{http://code2blog.wordpress.com/mappingDemo}:mappingDemoOutput">
-                    <output path="$MessageAssembly1/Properties/MessageType"/>
-                </assign>
-            </override>
+            <output path="$MessageAssembly2/Properties"/>
         </move>
         <foreach>
-            <input path="$MessageAssembly/mappingDemoInput/Details"/>
-            <output path="$MessageAssembly1/mappingDemoOutput/record"/>
+            <input path="$MessageAssembly/mappingDemoRequest/mappingDemoInput/Details"/>
+            <output path="$MessageAssembly2/mappingDemoResponse/mappingDemoOutput/record"/>
             <move>
                 <input path="RechargeValue"/>
                 <output path="field1"/>
-            </move>
-            <move>
-                <input path="Rechargeperiod"/>
-                <output path="field2"/>
             </move>
             <move>
                 <input path="SerialNumber"/>
@@ -32,6 +26,10 @@
             <move>
                 <input path="PINNumber"/>
                 <output path="field3"/>
+            </move>
+            <move>
+                <input path="Rechargeperiod"/>
+                <output path="field2"/>
             </move>
         </foreach>
     </mappingDeclaration>

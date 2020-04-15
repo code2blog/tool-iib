@@ -22,10 +22,10 @@
     <wsdl:part element="tns:xsltDemoResponse" name="xsltDemoResult"/>
   </wsdl:message>
     <wsdl:message name="mappingDemoRequestMsg">
-    <wsdl:part element="tns:mappingDemoInputParameter" name="mappingDemoInputParameter"/>
+    <wsdl:part element="tns:mappingDemoRequest" name="mappingDemoInputParameter"/>
   </wsdl:message>
     <wsdl:message name="mappingDemoResponseMsg">
-    <wsdl:part element="tns:mappingDemoOutputParameter" name="mappingDemoOutputParameter"/>
+    <wsdl:part element="tns:mappingDemoResponse" name="mappingDemoOutputParameter"/>
   </wsdl:message>
     <wsdl:portType name="NodeFeatures_V1_IS">
     <wsdl:operation name="xsltDemo">

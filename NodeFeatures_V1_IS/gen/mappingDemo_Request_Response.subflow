@@ -3,21 +3,22 @@
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" useDefaults="true" udpSupport="true">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
     <translation xmi:type="utility:TranslatableString" key="mappingDemo_Request_Response" bundleName="gen/mappingDemo_Request_Response" pluginId="NodeFeatures_V1_IS"/>
-    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/NodeFeatures_V1_IS/icons/full/obj16/mappingDemo_Request_Response"/>
-    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/NodeFeatures_V1_IS/icons/full/obj30/mappingDemo_Request_Response"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/NodeFeatures_V1_IS/icons/full/obj16/mappingDemo_Request_Response.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/NodeFeatures_V1_IS/icons/full/obj30/mappingDemo_Request_Response.gif"/>
     <composition>
-      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="20,20">
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="10,20">
         <translation xmi:type="utility:TranslatableString" key="InTerminal.Input" bundleName="gen/mappingDemo_Request_Response" pluginId="NodeFeatures_V1_IS"/>
       </nodes>
-      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="320,20">
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="309,20">
         <translation xmi:type="utility:TranslatableString" key="OutTerminal.Output" bundleName="gen/mappingDemo_Request_Response" pluginId="NodeFeatures_V1_IS"/>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="145,16" mappingExpression="msl://{gen}#mappingDemo_Request_Response_Mapping">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="93,20" mappingExpression="msl://{gen}#mappingDemo_Request_Response_Mapping">
         <translation xmi:type="utility:ConstantString" string="Mapping"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_1" sourceNode="InTerminal.Input" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="OutTerminal.Output" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
     </composition>
     <propertyOrganizer/>
+    <stickyBoard/>
   </eClassifiers>
 </ecore:EPackage>
