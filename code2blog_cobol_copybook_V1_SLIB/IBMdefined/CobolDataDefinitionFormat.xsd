@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!-- ******************************************************************
+	* Licensed Materials - Property of IBM
+	*
+	* (C) Copyright IBM Corp. 2011
+	*
+	* US Government Users Restricted Rights - Use, duplication, or
+	* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+	*
+	* Version 1.0 	CobolDataDefinitionFormat.xsd
+	*
+	* This DFDL schema is supplied by IBM. It provides a set of DFDL property values
+	* and other DFDL constructs to assist in the creation of DFDL schemas that model
+	* COBOL Programming language data structures.  
+	* 
+	* Example use: 
+	* 
+	* <xsd:import namespace="http://www.ibm.com/dfdl/CobolDataDefinitionFormat" schemaLocation="CobolDataDefinitionFormat.xsd"/>
+	******************************************************************* -->
+	
+	
+<xsd:schema 
+    targetNamespace="http://www.ibm.com/dfdl/CobolDataDefinitionFormat"
+	elementFormDefault="qualified" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:tns="http://www.ibm.com/dfdl/CobolDataDefinitionFormat"
+	xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/">
+
+
+	<xsd:annotation>
+
+		<xsd:appinfo source="http://www.ogf.org/dfdl/">
+
+			<dfdl:defineFormat name="CobolDataFormat">
+				<dfdl:format representation="text" escapeSchemeRef="" ignoreCase="yes" initiatedContent="no"
+					alignment="1" textStandardBase="10" textNumberCheckPolicy="lax" textStandardZeroRep="0"
+					textStandardDecimalSeparator="." textStandardExponentCharacter="E"
+					textStandardGroupingSeparator="," textNumberRoundingMode="roundUp" textNumberRounding="pattern"
+					textNumberJustification="right" textPadKind="padChar" sequenceKind="ordered"
+					textTrimKind="padChar" textOutputMinLength="0"
+					truncateSpecifiedLengthString="no" floating="no"
+					alignmentUnits="bytes" 
+					nilValueDelimiterPolicy="both" emptyValueDelimiterPolicy="none"
+					documentFinalTerminatorCanBeMissing="no"
+					useNilForDefault="yes" choiceLengthKind="explicit" fillByte="%#r00;"
+					binaryNumberCheckPolicy="lax" binaryBooleanTrueRep="1" binaryBooleanFalseRep="0"
+					textBooleanTrueRep="true" textBooleanFalseRep="false" textBooleanJustification="left"
+					textBooleanPadCharacter="%SP;" lengthKind="explicit"
+					lengthUnits="bytes" 
+					binaryNumberRep="binary"
+					binaryPackedSignCodes="C D F C"
+					outputNewLine="%CR;%LF;" initiator="" terminator="" separator=""  textBidi="no"  separatorPolicy="required" separatorPosition="infix" leadingSkip="0" trailingSkip="0" />
+			</dfdl:defineFormat>
+
+	
+		
+		</xsd:appinfo>
+
+	</xsd:annotation>
+
+  <!-- 
+		<dfdl:defineEscapeScheme name="DefaultEscapeScheme">
+				<dfdl:escapeScheme escapeKind="escapeCharacter"
+					escapeCharacter="\" escapeEscapeCharacter="\" generateEscapeBlock="whenNeeded"
+					extraEscapedCharacters='?'></dfdl:escapeScheme>
+			</dfdl:defineEscapeScheme>
+
+  -->
+
+	<xsd:simpleType name="PICX__string" dfdl:representation="text">
+		<xsd:restriction base="xsd:string"></xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- PIC9 Zoned -->
+	<xsd:simpleType name="PIC9-Display-Zoned__decimal" dfdl:representation="text"
+		dfdl:textNumberRep="zoned">
+		<xsd:restriction base="xsd:decimal"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Display-Zoned__short" dfdl:representation="text"
+		dfdl:textNumberRep="zoned">
+		<xsd:restriction base="xsd:unsignedShort"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Display-Zoned__short" dfdl:representation="text"
+		dfdl:textNumberRep="zoned">
+		<xsd:restriction base="xsd:short"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Display-Zoned__int" dfdl:representation="text"
+		dfdl:textNumberRep="zoned">
+		<xsd:restriction base="xsd:unsignedInt"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Display-Zoned__int" dfdl:representation="text"
+		dfdl:textNumberRep="zoned">
+		<xsd:restriction base="xsd:int"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Display-Zoned__long" dfdl:representation="text"
+		dfdl:textNumberRep="zoned">
+		<xsd:restriction base="xsd:unsignedLong"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Display-Zoned__long" dfdl:representation="text"
+		dfdl:textNumberRep="zoned">
+		<xsd:restriction base="xsd:long"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Display-Zoned__integer" dfdl:representation="text"
+		dfdl:textNumberRep="zoned">
+		<xsd:restriction base="xsd:nonNegativeInteger"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Display-Zoned__integer" dfdl:representation="text"
+		dfdl:textNumberRep="zoned">
+		<xsd:restriction base="xsd:integer"></xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- PIC9 Standard -->
+	<xsd:simpleType name="PIC9-Display__decimal" dfdl:representation="text"
+		dfdl:textNumberRep="standard">
+		<xsd:restriction base="xsd:decimal"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Display__short" dfdl:representation="text"
+		dfdl:textNumberRep="standard">
+		<xsd:restriction base="xsd:unsignedShort"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Display__short" dfdl:representation="text"
+		dfdl:textNumberRep="standard">
+		<xsd:restriction base="xsd:short"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Display__int" dfdl:representation="text"
+		dfdl:textNumberRep="standard">
+		<xsd:restriction base="xsd:unsignedInt"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Display__int" dfdl:representation="text"
+		dfdl:textNumberRep="standard">
+		<xsd:restriction base="xsd:int"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Display__long" dfdl:representation="text"
+		dfdl:textNumberRep="standard">
+		<xsd:restriction base="xsd:unsignedLong"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Display__long" dfdl:representation="text"
+		dfdl:textNumberRep="standard">
+		<xsd:restriction base="xsd:long"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Display__integer" dfdl:representation="text"
+		dfdl:textNumberRep="standard">
+		<xsd:restriction base="xsd:nonNegativeInteger"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Display__integer" dfdl:representation="text"
+		dfdl:textNumberRep="standard">
+		<xsd:restriction base="xsd:integer"></xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- PIC9 Comp3 -->
+	<xsd:simpleType name="PIC9-Comp3__decimal" dfdl:representation="binary"
+		dfdl:binaryNumberRep="packed">
+		<xsd:restriction base="xsd:decimal"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp3__short" dfdl:representation="binary"
+		dfdl:binaryNumberRep="packed">
+		<xsd:restriction base="xsd:unsignedShort">
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="9999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp3__short" dfdl:representation="binary"
+		dfdl:binaryNumberRep="packed">
+		<xsd:restriction base="xsd:short">
+			<xsd:minInclusive value="-9999" />
+			<xsd:maxInclusive value="9999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp3__int" dfdl:representation="binary"
+		dfdl:binaryNumberRep="packed">
+		<xsd:restriction base="xsd:unsignedInt">
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp3__int" dfdl:representation="binary"
+		dfdl:binaryNumberRep="packed">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="-999999999" />
+			<xsd:maxInclusive value="999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp3__long" dfdl:representation="binary"
+		dfdl:binaryNumberRep="packed">
+		<xsd:restriction base="xsd:unsignedLong">
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="999999999999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp3__long" dfdl:representation="binary"
+		dfdl:binaryNumberRep="packed">
+		<xsd:restriction base="xsd:long">
+			<xsd:minInclusive value="-999999999999999999" />
+			<xsd:maxInclusive value="999999999999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp3__integer" dfdl:representation="binary"
+		dfdl:binaryNumberRep="packed">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="9999999999999999999999999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp3__integer" dfdl:representation="binary"
+		dfdl:binaryNumberRep="packed">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="-9999999999999999999999999999999" />
+			<xsd:maxInclusive value="9999999999999999999999999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- PIC9 Comp -->
+	<xsd:simpleType name="PIC9_Comp__decimal" dfdl:representation="binary"
+		dfdl:binaryNumberRep="binary">
+		<xsd:restriction base="xsd:decimal"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp__short" dfdl:representation="binary" dfdl:length="2">
+		<xsd:restriction base="xsd:unsignedShort">
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="9999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp__short" dfdl:representation="binary" dfdl:length="2">
+		<xsd:restriction base="xsd:short">
+			<xsd:minInclusive value="-9999" />
+			<xsd:maxInclusive value="9999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp__int" dfdl:representation="binary" dfdl:length="4">
+		<xsd:restriction base="xsd:unsignedInt">
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp__int" dfdl:representation="binary" dfdl:length="4">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="-999999999" />
+			<xsd:maxInclusive value="999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp__long" dfdl:representation="binary" dfdl:length="8">
+		<xsd:restriction base="xsd:unsignedLong">
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="999999999999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp__long" dfdl:representation="binary" dfdl:length="8">
+		<xsd:restriction base="xsd:long">
+			<xsd:minInclusive value="-999999999999999999" />
+			<xsd:maxInclusive value="999999999999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp__integer" dfdl:representation="binary" dfdl:length="16">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:minInclusive value="0" />
+			<xsd:maxInclusive value="9999999999999999999999999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp__integer" dfdl:representation="binary" dfdl:length="16">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="-9999999999999999999999999999999" />
+			<xsd:maxInclusive value="9999999999999999999999999999999" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- PIC9 Comp5 -->
+	<xsd:simpleType name="PICS9-Comp5__short" dfdl:representation="binary" dfdl:length="2">
+		<xsd:restriction base="xsd:short"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp5__short" dfdl:representation="binary" dfdl:length="2">
+		<xsd:restriction base="xsd:unsignedShort"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp5__int" dfdl:representation="binary" dfdl:length="4">
+		<xsd:restriction base="xsd:int"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp5__int" dfdl:representation="binary" dfdl:length="4">
+		<xsd:restriction base="xsd:unsignedInt"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PICS9-Comp5__long" dfdl:representation="binary" dfdl:length="8">
+		<xsd:restriction base="xsd:long"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp5__long" dfdl:representation="binary" dfdl:length="8">
+		<xsd:restriction base="xsd:unsignedLong"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp1__float" dfdl:representation="binary" dfdl:length="4">
+		<xsd:restriction base="xsd:float"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-Comp2__double" dfdl:representation="binary" dfdl:length="8">
+		<xsd:restriction base="xsd:double"></xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC9-External-Float__string" dfdl:representation="text">
+		<xsd:restriction base="xsd:string" />
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC-Numeric-Edited-Display__string" dfdl:representation="text">
+		<xsd:restriction base="xsd:string" />
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PIC-National__string" dfdl:representation="text">
+		<xsd:restriction base="xsd:string" />
+	</xsd:simpleType>
+
+
+</xsd:schema>
