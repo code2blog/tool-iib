@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:group name="MIME_header_fields">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Content-Type">
+        <xsd:complexType>
+          <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+	          <xsd:attribute name="boundary" type="xsd:string"/>
+	          <xsd:attribute name="type" type="xsd:string"/>
+	          <xsd:attribute name="start" type="xsd:string"/>
+	          <xsd:attribute name="start-info" type="xsd:string"/>
+	          <xsd:attribute name="charset" type="xsd:string"/>
+	        </xsd:extension>
+          </xsd:simpleContent>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element maxOccurs="1" minOccurs="0" name="Content-Transfer-Encoding">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="7bit"/>
+            <xsd:enumeration value="8bit"/>
+            <xsd:enumeration value="binary"/>
+            <xsd:enumeration value="quoted-printable"/>
+            <xsd:enumeration value="base64"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+
+      <xsd:element maxOccurs="1" minOccurs="0" name="Content-Id" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="Content-Description" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:group>
+  
+    <xsd:complexType name="MIME_Headers_type">
+    <xsd:sequence>
+      <xsd:group ref="MIME_header_fields"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Attachment_type">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="MIME_Headers" type="MIME_Headers_type"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="Data" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="SOAP_Msg_type">
+    <xsd:sequence>
+
+      <xsd:element maxOccurs="1" minOccurs="0" name="Context">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+
+            <xsd:element maxOccurs="1" minOccurs="0" name="SOAP_Version">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="1.1"/>
+                  <xsd:enumeration value="1.2"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+
+            <xsd:element maxOccurs="1" minOccurs="0" name="Namespace">
+              <xsd:complexType>
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                     <xsd:anyAttribute namespace="##any" processContents="lax"/>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element maxOccurs="1" minOccurs="0" name="_XmlDeclaration">
+              <xsd:complexType>
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+	                <xsd:attribute name="Version" type="xsd:string"/>
+	                <xsd:attribute name="Encoding" type="xsd:string"/>
+	              </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element maxOccurs="1" minOccurs="0" name="XmlRoot">
+              <xsd:complexType>
+                <xsd:sequence maxOccurs="1" minOccurs="1">
+                  <xsd:element maxOccurs="1" minOccurs="1" name="Envelope">
+                     <xsd:complexType>
+                        <xsd:sequence maxOccurs="1" minOccurs="0">
+                           <xsd:element maxOccurs="1" minOccurs="0" name="Header" type="xsd:anyType"/>
+                           <xsd:element maxOccurs="1" minOccurs="0" name="Body" type="xsd:anyType"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element maxOccurs="1" minOccurs="0" name="MIME_Headers" type="MIME_Headers_type"/>
+          </xsd:sequence>
+
+          <xsd:attribute name="port" type="xsd:string"/>
+          <xsd:attribute name="portType" type="xsd:string"/>
+          <xsd:attribute name="portTypeNamespace" type="xsd:string"/>
+          <xsd:attribute name="operation" type="xsd:string"/>
+          <xsd:attribute name="operationType" type="xsd:string"/>
+          <xsd:attribute name="service" type="xsd:string"/>
+          <xsd:attribute name="serviceNamespace" type="xsd:string"/>
+          <xsd:attribute name="fileName" type="xsd:string"/>         
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element maxOccurs="1" minOccurs="0" name="Header">
+        <xsd:complexType>
+          <xsd:sequence>
+               <xsd:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded" />     
+          </xsd:sequence>
+          <xsd:anyAttribute namespace="##any" processContents="lax"/>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element maxOccurs="1" minOccurs="1" name="Body">
+        <xsd:complexType>
+              <xsd:sequence>
+              <xsd:any namespace="##any" processContents="lax" minOccurs="0"  maxOccurs="1" />     
+            </xsd:sequence>
+          <xsd:anyAttribute namespace="##any" processContents="lax"/>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element maxOccurs="1" minOccurs="0" name="Attachment">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+            <!-- xsd:element name="your-content-ID" type="Attachment_type"/ -->
+            <xsd:any namespace="##any" processContents="lax"/>	
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+    <xsd:element name="SOAP_Domain_Msg" type="SOAP_Msg_type">
+  </xsd:element>
+</xsd:schema>

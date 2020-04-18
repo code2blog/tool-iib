@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:batchScriptDemoResponse xmlns:tns="http://WindowsCommands_V1_IS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://WindowsCommands_V1_IS WindowsCommands_V1_IS_InlineSchema1.xsd ">
+  <result>output1</result>
+</tns:batchScriptDemoResponse>

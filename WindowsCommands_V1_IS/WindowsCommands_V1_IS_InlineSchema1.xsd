@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://WindowsCommands_V1_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://WindowsCommands_V1_IS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:element ibmSchExtn:docRoot="true" name="batchScriptDemo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="command" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element ibmSchExtn:docRoot="true" name="batchScriptDemoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="syslogDemo">
+    <xsd:complexType>
+      <xsd:sequence>
+      	<xsd:element name="className" nillable="true"
+      		type="xsd:string" />
+      	<xsd:element name="method" type="xsd:string"></xsd:element>
+      	<xsd:element name="level" type="xsd:int"></xsd:element>
+      	<xsd:element name="key" type="xsd:string"></xsd:element>
+      	<xsd:element name="insert" type="xsd:string"></xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="syslogDemoResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="output" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,17 @@
+
+
+Importing file: C:\vishnu\workspace\iib-welcome2\WindowsCommands_V1_IS\WindowsCommands_V1_IS.wsdl
+
+The WSDL import will proceed with bindings WindowsCommands_V1_ISHttpBinding.
+Creating wsdl schema document for platform:/resource/WindowsCommands_V1_IS/WindowsCommands_V1_IS.wsdl.
+Parsing wsdl binding {http://WindowsCommands_V1_IS}WindowsCommands_V1_ISHttpBinding.
+Parsing wsdl binding input batchScriptDemo.
+Parsing wsdl binding output batchScriptDemo.
+Parsing wsdl binding input syslogDemo.
+Parsing wsdl binding output syslogDemo.
+Processing doc style for operation batchScriptDemo.
+Processing doc style for operation syslogDemo.
+Populating WSDL schema WindowsCommands_V1_IS.xsd.
+Creating file WindowsCommands_V1_IS.xsd in the workspace.
+Creating file WindowsCommands_V1_IS_InlineSchema1.xsd in the workspace.
+Copying source WSDL WindowsCommands_V1_IS.wsdl to WindowsCommands_V1_IS.wsdl.

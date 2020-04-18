@@ -28,6 +28,9 @@ code2blog_cobol_copybook_V1_SLIB
 LargeMessages
 	lm-1 : read a large xml and split it into smaller xmls using jcn
 
+WindowsCommands_V1_IS
+	wc-1 : write syslog events
+	
 Why do I use commit tags ?
 	Here JIRA-123. JIRA-124 are the sample commit tags. 
 	We frequently commit our changes. Each commit provides meaningful information to the developer as shown below. But you would not release every code commit to next higher environment. We commit our code changes when we want to switch to some other task ( coffee break ). You can safely resume your coding if you do frequent commits. But release and rollback actions occur on higher abstraction level such as a task in hpqc or jira. See two jira tickets given below. 
