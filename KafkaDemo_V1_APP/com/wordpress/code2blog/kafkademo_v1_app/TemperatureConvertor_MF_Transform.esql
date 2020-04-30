@@ -1,0 +1,13 @@
+BROKER SCHEMA com.wordpress.code2blog.kafkademo_v1_app
+
+
+CREATE COMPUTE MODULE TemperatureConvertor_MF_Transform
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON';
+		SET OutputRoot.JSON.Data.temperature = 123; -- (0°C × 9/5) + 32 = 32°F
+		RETURN TRUE;
+	END;
+
+END MODULE;

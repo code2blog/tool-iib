@@ -25,5 +25,17 @@ NodeFeatures_V1_IS
 	
 CSV_MFP
 	csv-1 : change xml message to csv format
+
+code2blog_cobol_copybook_V1_SLIB
+	cpy-1 : convert cobol copy book to iib dfdl
 	
+LargeMessages
+	lm-1 : read a large xml and split it into smaller xmls using jcn
+
+WindowsCommands_V1_IS
+	wc-1 : write syslog events
+
+KafkaDemo_V1_APP
+	kd-1 : demo the use of kafka producer and consumer node
+		
 </pre>

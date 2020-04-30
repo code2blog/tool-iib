@@ -30,6 +30,9 @@ LargeMessages
 
 WindowsCommands_V1_IS
 	wc-1 : write syslog events
+
+KafkaDemo_V1_APP
+	kd-1 : demo the use of kafka producer and consumer node
 	
 Why do I use commit tags ?
 	Here JIRA-123. JIRA-124 are the sample commit tags. 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmPassthru.msgnode="ComIbmPassthru.msgnode" xmlns:com_ibm_connector_kafka_ComIbmEventInput.msgnode="com/ibm/connector/kafka/ComIbmEventInput.msgnode" xmlns:com_ibm_connector_kafka_ComIbmOutput.msgnode="com/ibm/connector/kafka/ComIbmOutput.msgnode" xmlns:com_wordpress_code2blog_kafkademo_v1_app_CatchHandler_SF.subflow="com/wordpress/code2blog/kafkademo_v1_app/CatchHandler_SF.subflow"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="com/wordpress/code2blog/kafkademo_v1_app/TemperatureConvertor_MF.msgflow" nsPrefix="com_wordpress_code2blog_kafkademo_v1_app_TemperatureConvertor_MF.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="TemperatureConvertor_MF" bundleName="com/wordpress/code2blog/kafkademo_v1_app/TemperatureConvertor_MF" pluginId="KafkaDemo_V1_APP"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/KafkaDemo_V1_APP/icons/full/obj16/TemperatureConvertor_MF.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/KafkaDemo_V1_APP/icons/full/obj30/TemperatureConvertor_MF.gif"/>
+    <longDescription xmi:type="utility:ConstantString" string="- message flow transforms message of some business process for one target system data structure.&#xD;&#xA;source = iot sensor&#xD;&#xA;business process = temperature convertor&#xD;&#xA;target = json data structure&#xD;&#xA;&#xD;&#xA;client id = kafkademo_v1_app-temperatureconvertor_mf-&#xD;&#xA;to keep the ids unique, i have chosen to use a struture that has app name and message flow name in it.&#xD;&#xA;&#xD;&#xA;pass through node is used for debug purposes&#xD;&#xA;so that i can show you the response from kafka producer&#xD;&#xA;"/>
+    <composition>
+      <nodes xmi:type="com_ibm_connector_kafka_ComIbmOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="357,20" connectorName="Kafka" topicName="iib.temperature_convertor.json" bootstrapServers="localdocker:9092" clientId="kafkademo_v1_app-temperatureconvertor_mf-" useClientIdSuffix="true" acks="1" timeout="30" securityProtocol="PLAINTEXT" sslProtocol="TLSv1.2" validateMaster="inherit" validateFailureAction="exception">
+        <translation xmi:type="utility:ConstantString" string="iib.temperature_convertor.json"/>
+      </nodes>
+      <nodes xmi:type="com_ibm_connector_kafka_ComIbmEventInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" connectorName="Kafka" topicName="iot_sensor.temperature_convertor" bootstrapServers="localdocker:9092" groupId="iib" initialOffset="latest" enableAutoCommit="true" clientId="kafkademo_v1_app-temperatureconvertor_mf-" useClientIdSuffix="true" connectionTimeout="15" sessionTimeout="10" receiveBatchSize="1" securityProtocol="PLAINTEXT" sslProtocol="TLSv1.2" messageDomainProperty="XMLNSC"
+          validateTiming="deferred" parserXmlnscBuildTreeUsingXMLSchema="false" parserXmlnscUseForXmlnsDomain="false" parserXmlnscMixedContentRetainMode="none" parserXmlnscCommentsRetainMode="none" parserXmlnscProcessingInstructionsRetainMode="none" validateMaster="none" validateFailureAction="exception" componentLevel="flow" additionalInstances="0">
+        <translation xmi:type="utility:ConstantString" string="iot_sensor.temperature_convertor"/>
+      </nodes>
+      <nodes xmi:type="com_wordpress_code2blog_kafkademo_v1_app_CatchHandler_SF.subflow:FCMComposite_1" xmi:id="FCMComposite_1_4" location="227,101">
+        <translation xmi:type="utility:ConstantString" string="CatchHandler_SF"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="245,20" computeExpression="esql://routine/com.wordpress.code2blog.kafkademo_v1_app#TemperatureConvertor_MF_Transform.Main">
+        <translation xmi:type="utility:ConstantString" string="Transform"/>
+      </nodes>
+      <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="570,25">
+        <translation xmi:type="utility:ConstantString" string="Pass through"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.catch" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_1" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer/>
+    <stickyBoard>
+      <stickyNote location="401,96">
+        <body xmi:type="utility:ConstantString" string="read long description"/>
+      </stickyNote>
+    </stickyBoard>
+  </eClassifiers>
+</ecore:EPackage>
