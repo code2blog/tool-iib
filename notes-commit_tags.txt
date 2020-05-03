@@ -33,6 +33,9 @@ WindowsCommands_V1_IS
 
 KafkaDemo_V1_APP
 	kd-1 : demo the use of kafka producer and consumer node
+
+ParseZipFile_MFP
+	zip-1 : read zip file with pdf and create multiple xml files.
 	
 Why do I use commit tags ?
 	Here JIRA-123. JIRA-124 are the sample commit tags. 
