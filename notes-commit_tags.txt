@@ -36,6 +36,9 @@ KafkaDemo_V1_APP
 
 ParseZipFile_MFP
 	zip-1 : read zip file with pdf and create multiple xml files.
+
+SendEmail_V1_APP
+	se-1 : use email output node to send email
 	
 Why do I use commit tags ?
 	Here JIRA-123. JIRA-124 are the sample commit tags. 

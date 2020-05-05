@@ -1,0 +1,51 @@
+
+--
+CREATE COMPUTE MODULE CreateMime_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- Add recipient information to the EmailOutputHeader
+		SET OutputRoot.EmailOutputHeader.To = 'code2blog@mailtrap.io';
+		SET OutputRoot.EmailOutputHeader.Cc = '';
+		SET OutputRoot.EmailOutputHeader.Bcc = '';
+		-- Add sender information to EmailOutputHeader
+		SET OutputRoot.EmailOutputHeader.From = 'vishnu@mailtrap.io';
+		SET OutputRoot.EmailOutputHeader."Reply-To" = '';
+		-- Add subject to EmailOutputHeader
+		SET OutputRoot.EmailOutputHeader.Subject = 'Dynamic MIME message in ESQL.';
+		-- Create a new MIME message body, which will be sent as the main text of the email,
+		-- including an attachment.
+		CREATE FIELD OutputRoot.MIME TYPE Name;
+		DECLARE M REFERENCE TO OutputRoot.MIME;
+		-- Create the Content-Type child of MIME explicitly to ensure the correct order. If we set
+		-- the ContentType property instead, the field could appear as the last child of MIME.
+		CREATE FIELD M."Content-Type" TYPE NameValue VALUE 'multipart/related; boundary=myBoundary';
+		CREATE FIELD M."Content-ID" TYPE NameValue VALUE 'new MIME document';
+
+		CREATE LASTCHILD OF M TYPE Name NAME 'Parts';
+		CREATE LASTCHILD OF M.Parts TYPE Name NAME 'Part';
+		DECLARE P1 REFERENCE TO M.Parts.Part;
+		-- First part:
+		-- Create the body of the email.
+		-- The body of the email has the text 'This is the main body of the email.'.
+		CREATE FIELD P1."Content-Type" TYPE NameValue VALUE 'text/plain; charset=us-ascii';
+		CREATE FIELD P1."Content-Transfer-Encoding" TYPE NameValue VALUE '8bit';
+		CREATE LASTCHILD OF P1 TYPE Name NAME 'Data';
+		CREATE LASTCHILD OF P1.Data DOMAIN('BLOB') PARSE(CAST('This is the main body of the email.'
+		AS BLOB CCSID 1208));
+
+		CREATE LASTCHILD OF M.Parts TYPE Name NAME 'Part';
+		DECLARE P2 REFERENCE TO M.Parts.Part[2];
+		-- Second part:
+		-- Create the attachment of an email.
+		-- The attachment is called 'attachment.txt' and contains the text 'This is an attachment.'.
+		CREATE FIELD P2."Content-Type" TYPE NameValue VALUE 'text/plain; charset=us-ascii; name=attachment.txt';
+		CREATE FIELD P2."Content-Transfer-Encoding" TYPE NameValue VALUE '8bit';
+		CREATE LASTCHILD OF P2 TYPE Name NAME 'Data';
+		CREATE LASTCHILD OF P2.Data DOMAIN('BLOB') PARSE(CAST('This is an attachment.' AS BLOB CCSID 1208));
+		--
+		-- Add SMTP server information to the LocalEnvironment
+		SET OutputLocalEnvironment.Destination.Email.SMTPServer ='smtp.mailtrap.io:2525';
+		SET OutputLocalEnvironment.Destination.Email.SecurityIdentity = 'secSmtpMailTrap';
+		RETURN TRUE;
+	END;
+END MODULE;
