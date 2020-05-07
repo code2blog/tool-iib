@@ -1,0 +1,16 @@
+
+--
+BROKER SCHEMA com.wordpress.code2blog
+
+CREATE COMPUTE MODULE InvokeSoapService_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE soapenv NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+		DECLARE hel NAMESPACE 'http://www.example.org/HelloWorld/';
+		-- Body Elements
+		SET OutputRoot.SOAP.Body.hel:SayHello.in = 'Vishnu';
+
+		SET OutputLocalEnvironment.Destination.SOAP.Request.Transport.HTTP.WebServiceURL = 'http://localhost:8888/hello';
+		RETURN TRUE;
+	END;
+END MODULE;

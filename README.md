@@ -37,5 +37,14 @@ WindowsCommands_V1_IS
 
 KafkaDemo_V1_APP
 	kd-1 : demo the use of kafka producer and consumer node
-		
+
+ParseZipFile_MFP
+	zip-1 : read zip file with pdf and create multiple xml files.
+
+SendEmail_V1_APP
+	se-1 : use email output node to send email
+
+WSSecurityDemo_V1_APP
+	wss-1 : invoke soap service and use security profile config servie to load credentials into soap header
+
 </pre>
