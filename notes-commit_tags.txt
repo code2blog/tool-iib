@@ -42,6 +42,9 @@ SendEmail_V1_APP
 
 WSSecurityDemo_V1_APP
 	wss-1 : invoke soap service and use security profile config servie to load credentials into soap header
+
+GlobalCacheDemo_V1_APP
+	gc-1 : load records into cache from database
 	
 Why do I use commit tags ?
 	Here JIRA-123. JIRA-124 are the sample commit tags. 

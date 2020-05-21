@@ -1,0 +1,6 @@
+
+--
+BROKER SCHEMA com.wordpress.code2blog.globalcachedemo_v1_app
+
+CREATE PROCEDURE PutJAXB2CACHE(IN dBRow REFERENCE)
+ LANGUAGE JAVA EXTERNAL NAME "com.wordpress.code2blog.esql_interface.PutEmployee2Cache.loadDbRow";
