@@ -4,6 +4,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="JCN_HOME/javacompute.jar"/>
 	<classpathentry kind="var" path="JCN_HOME/jplugin2.jar"/>
-	<classpathentry kind="con" path="com.ibm.etools.mft.uri.classpath.MBProjectReference"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
