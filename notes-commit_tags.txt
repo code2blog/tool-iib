@@ -45,6 +45,7 @@ WSSecurityDemo_V1_APP
 
 GlobalCacheDemo_V1_APP
 	gc-1 : load records into cache from database
+	gc-2 : retrieve records from cache
 	
 Why do I use commit tags ?
 	Here JIRA-123. JIRA-124 are the sample commit tags. 

@@ -1,0 +1,6 @@
+
+--
+BROKER SCHEMA com.wordpress.code2blog.globalcachedemo_v1_app
+
+CREATE PROCEDURE GetValueFromCache(IN key CHAR) RETURNS CHAR
+ LANGUAGE JAVA EXTERNAL NAME "com.wordpress.code2blog.esql_interface.GetEmployeeFromCache.retrieve";

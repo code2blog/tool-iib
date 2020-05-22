@@ -1,0 +1,14 @@
+
+--
+BROKER SCHEMA com.wordpress.code2blog.globalcachedemo_v1_app
+
+CREATE COMPUTE MODULE getValueFromCache_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		DECLARE sPrimaryKey CHAR CAST(InputRoot.BLOB.BLOB AS CHAR CCSID InputRoot.Properties.CodedCharSetId);
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'BLOB';
+		SET OutputRoot.BLOB.BLOB = CAST(GetValueFromCache(sPrimaryKey) AS BLOB CCSID InputRoot.Properties.CodedCharSetId);
+		RETURN TRUE;
+	END;
+END MODULE;
