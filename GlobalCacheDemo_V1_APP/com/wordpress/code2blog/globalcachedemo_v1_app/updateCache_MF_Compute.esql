@@ -1,0 +1,23 @@
+BROKER SCHEMA com.wordpress.code2blog.globalcachedemo_v1_app
+
+
+CREATE COMPUTE MODULE updateCache_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properites;
+		DECLARE sPrimaryKey CHAR CAST(InputRoot.BLOB.BLOB AS CHAR CCSID InputRoot.Properties.CodedCharSetId);
+		-- get value from global cache
+		CREATE LASTCHILD OF Environment.cache DOMAIN 'XMLNSC' PARSE( 
+			CAST(GetValueFromCache(sPrimaryKey) AS BLOB CCSID InputRoot.Properties.CodedCharSetId)
+			, InputProperties.Encoding, InputProperties.CodedCharSetId);
+		-- update values 
+		SET Environment.cache.XMLNSC.EMPLOYEE.LASTNAME = UPPER(Environment.cache.XMLNSC.EMPLOYEE.LASTNAME);
+		SET Environment.cache.XMLNSC.EMPLOYEE.CACHE_UPDATED_AT = CURRENT_TIMESTAMP;
+		-- push to cache
+		CALL PutJAXB2CACHE(Environment.cache.XMLNSC.EMPLOYEE);
+		-- respond to caller
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'XMLNSC';
+		SET OutputRoot.XMLNSC.employee.updated_record_for_employee_number = sPrimaryKey;
+		RETURN TRUE;
+	END;
+END MODULE;
