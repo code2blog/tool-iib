@@ -6,9 +6,11 @@
         <xsd:element ref="EMPNO"/>
         <xsd:element ref="FIRSTNAME"/>
         <xsd:element ref="LASTNAME"/>
+        <xsd:element ref="CACHE_UPDATED_AT"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
   <xsd:element name="EMPNO" type="xsd:int"/>
   <xsd:element name="FIRSTNAME" type="xsd:string"/>
+  <xsd:element name="CACHE_UPDATED_AT" type="xsd:string"/>
 </xsd:schema>

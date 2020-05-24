@@ -31,7 +31,11 @@ public class PutEmployee2Cache {
 			// Establish connection with Map called "DemoMap"
 			MbGlobalMap globalMap = MbGlobalMap.getGlobalMap("DemoMap");
 			// don't save java objects to map. Save string or bytes
-			globalMap.put(primaryKey, xmlString);
+			if (globalMap.get(primaryKey) == null) {
+				globalMap.put(primaryKey, xmlString);
+			} else {
+				globalMap.update(primaryKey, xmlString);
+			}
 			return;
 		} catch (Exception e) {
 			// let this error be handled by message flow
