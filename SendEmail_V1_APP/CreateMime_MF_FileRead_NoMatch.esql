@@ -1,0 +1,11 @@
+
+--
+CREATE COMPUTE MODULE CreateMime_MF_FileRead_NoMatch
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		SET OutputRoot.XMLNSC.error.description = 'excel file not found on disk';
+		RETURN TRUE;
+	END;
+
+END MODULE;
