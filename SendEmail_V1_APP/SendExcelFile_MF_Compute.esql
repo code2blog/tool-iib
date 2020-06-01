@@ -3,6 +3,9 @@
 CREATE COMPUTE MODULE SendExcelFile_MF_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
+		-- Don't copy entire InputRoot to OutputRoot. It causes this error - [Parts found, but Content-Type does not specify a valid boundary]
+		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
 		-- Add recipient information to the EmailOutputHeader
 		SET OutputRoot.EmailOutputHeader.To = 'code2blog@mailtrap.io';
 		SET OutputRoot.EmailOutputHeader.Cc = '';
@@ -11,14 +14,14 @@ CREATE COMPUTE MODULE SendExcelFile_MF_Compute
 		SET OutputRoot.EmailOutputHeader.From = 'vishnu@mailtrap.io';
 		SET OutputRoot.EmailOutputHeader."Reply-To" = '';
 		-- Add subject to EmailOutputHeader
-		SET OutputRoot.EmailOutputHeader.Subject = 'Dynamic MIME message in ESQL.';
+		SET OutputRoot.EmailOutputHeader.Subject = 'Dynamic MIME message in ESQL with excel attachment';
 		-- Create a new MIME message body, which will be sent as the main text of the email,
 		-- including an attachment.
 		CREATE FIELD OutputRoot.MIME TYPE Name;
 		DECLARE M REFERENCE TO OutputRoot.MIME;
 		-- Create the Content-Type child of MIME explicitly to ensure the correct order. If we set
 		-- the ContentType property instead, the field could appear as the last child of MIME.
-		CREATE FIELD M."Content-Type" TYPE NameValue VALUE 'multipart/related; boundary=myBoundary';
+		CREATE FIELD M."Content-Type" TYPE NameValue VALUE 'multipart/mixed; boundary={{myBoundary}}';
 		CREATE FIELD M."Content-ID" TYPE NameValue VALUE 'new MIME document';
 
 		CREATE LASTCHILD OF M TYPE Name NAME 'Parts';
@@ -27,32 +30,42 @@ CREATE COMPUTE MODULE SendExcelFile_MF_Compute
 		-- First part:
 		-- Create the body of the email.
 		-- The body of the email has the text 'This is the main body of the email.'.
-		CREATE FIELD P1."Content-Type" TYPE NameValue VALUE 'text/plain; charset=us-ascii';
+		DECLARE sCharSet CHAR 'us-ascii';
+		IF InputRoot.Properties.CodedCharSetId = 5348 THEN
+			SET sCharSet = 'Cp1252';
+		ELSE
+			SET sCharSet = 'utf-8';
+		END IF;	
+		CREATE FIELD P1."Content-Type" TYPE NameValue VALUE 'text/plain; charset=' || sCharSet;
 		CREATE FIELD P1."Content-Transfer-Encoding" TYPE NameValue VALUE '8bit';
 		CREATE LASTCHILD OF P1 TYPE Name NAME 'Data';
 		CREATE LASTCHILD OF P1.Data DOMAIN('BLOB') PARSE(CAST('This is the main body of the email.'
-		AS BLOB CCSID 1208));
+			AS BLOB CCSID InputRoot.Properties.CodedCharSetId));
 
 		CREATE LASTCHILD OF M.Parts TYPE Name NAME 'Part';
 		DECLARE P2 REFERENCE TO M.Parts.Part[2];
 		-- Second part:
 		-- Create the attachment of an email.
 		-- The attachment is called 'attachment.txt' and contains the text 'This is an attachment.'.
-		CREATE FIELD P2."Content-Type" TYPE NameValue VALUE 'text/plain; charset=us-ascii; name=attachment.txt';
+		CREATE FIELD P2."Content-Type" TYPE NameValue VALUE 'application/octet-stream; charset=' || sCharSet || '; name="attachment.txt"';
+		CREATE FIELD P2."Content-Dispostion" TYPE NameValue VALUE 'attachment; filename="attachment.txt"';
 		CREATE FIELD P2."Content-Transfer-Encoding" TYPE NameValue VALUE '8bit';
 		CREATE LASTCHILD OF P2 TYPE Name NAME 'Data';
-		CREATE LASTCHILD OF P2.Data DOMAIN('BLOB') PARSE(CAST('This is an attachment.' AS BLOB CCSID 1208));
+		CREATE LASTCHILD OF P2.Data DOMAIN('BLOB') PARSE(CAST('This is an attachment.' 
+			AS BLOB CCSID InputRoot.Properties.CodedCharSetId));
 		--
 		CREATE LASTCHILD OF M.Parts TYPE Name NAME 'Part';
 		DECLARE P3 REFERENCE TO M.Parts.Part[3];
 		-- third part:
 		-- Create excel file attachment of an email.
 		-- The attachment is called 'mastermansaw.xlsx' =
-		CREATE FIELD P3."Content-Type" TYPE NameValue VALUE 'application/octet-stream; charset=utf-8; name=mastermansaw.xlsx';
-		CREATE FIELD P3."Content-Transfer-Encoding" TYPE NameValue VALUE 'binary';
+		CREATE FIELD P3."Content-Type" TYPE NameValue VALUE 'application/octet-stream; charset=' || sCharSet || '; name="mastermansaw.xlsx"';
+		CREATE FIELD P3."Content-Dispostion" TYPE NameValue VALUE 'attachment; filename="mastermansaw.xlsx"';
+		CREATE FIELD P3."Content-Transfer-Encoding" TYPE NameValue VALUE 'base64';
 		CREATE LASTCHILD OF P3 TYPE Name NAME 'Data';
 		CREATE LASTCHILD OF P3.Data DOMAIN('BLOB');
-		SET P3.Data.BLOB.BLOB = InputRoot.BLOB.BLOB;
+		SET P3.Data.BLOB.BLOB = CAST(BASE64ENCODE(InputRoot.BLOB.BLOB) 
+			AS BLOB CCSID InputRoot.Properties.CodedCharSetId);
 		--
 		-- Add SMTP server information to the LocalEnvironment
 		SET OutputLocalEnvironment.Destination.Email.SMTPServer ='smtp.mailtrap.io:2525';
