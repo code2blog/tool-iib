@@ -1,0 +1,12 @@
+BROKER SCHEMA com.wordpress.code2blog.imageincdata_app
+
+
+CREATE COMPUTE MODULE QueueToFolder_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'BLOB';
+		SET OutputRoot.BLOB.BLOB = BASE64DECODE(InputRoot.XMLNSC.InputFile);
+		RETURN TRUE;
+	END;
+END MODULE;
