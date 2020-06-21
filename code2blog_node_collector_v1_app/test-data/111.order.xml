@@ -1,0 +1,6 @@
+<Order>
+	<OrderNumber>123</OrderNumber>
+	<Product>Toaster</Product>
+	<Quantity>1</Quantity>
+	<Delivery>2 days</Delivery>
+</Order> 

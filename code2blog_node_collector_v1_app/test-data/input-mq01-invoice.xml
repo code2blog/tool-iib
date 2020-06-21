@@ -1,0 +1,6 @@
+<Invoice> 
+     <CustomerNumber>111</CustomerNumber> 
+     <Product>Toaster</Product> 
+     <Quantity>1</Quantity> 
+     <UnitPrice>4.99</UnitPrice> 
+</Invoice> 
