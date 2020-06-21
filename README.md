@@ -50,5 +50,8 @@ WSSecurityDemo_V1_APP
 
 ImageInCdata_APP
 	iica-1 : extract image from xml cdata and save as png file
+
+code2blog_node_collector_v1_app
+	cn-1 : demo the use of collector node
 	
 </pre>
