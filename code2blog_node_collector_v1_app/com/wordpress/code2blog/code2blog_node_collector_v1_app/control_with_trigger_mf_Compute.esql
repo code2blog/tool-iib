@@ -1,0 +1,11 @@
+BROKER SCHEMA com.wordpress.code2blog.code2blog_node_collector_v1_app
+
+
+CREATE COMPUTE MODULE control_with_trigger_mf_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		SET OutputRoot.XMLNSC.Collection = InputBody;
+		RETURN TRUE;
+	END;
+END MODULE;

@@ -53,5 +53,6 @@ ImageInCdata_APP
 
 code2blog_node_collector_v1_app
 	cn-1 : demo the use of collector node
+	cn-2 : use collector node to batch received messages based on a trigger/control message
 	
 </pre>
