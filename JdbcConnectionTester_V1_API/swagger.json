@@ -1,0 +1,48 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "JdbcConnectionTester_V1_API",
+    "version" : "1.0.0",
+    "description" : "JdbcConnectionTester_V1_API"
+  },
+  "paths" : {
+    "/configservice" : {
+      "get" : {
+        "operationId" : "getConfigservice",
+        "responses" : {
+          "200" : {
+            "description" : "The connection was established.",
+            "schema" : {
+              "$ref" : "#/definitions/configServiceTestResult"
+            }
+          },
+          "500" : {
+            "description" : "The connection failed to establish.",
+            "schema" : {
+              "$ref" : "#/definitions/configServiceTestResult"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve configservice",
+        "parameters" : [ {
+          "name" : "jdbc",
+          "in" : "query",
+          "type" : "string"
+        } ]
+      }
+    }
+  },
+  "basePath" : "/jdbcconnectiontester/v1",
+  "definitions" : {
+    "configServiceTestResult" : {
+      "type" : "object",
+      "properties" : {
+        "message" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "message" ]
+    }
+  }
+}
