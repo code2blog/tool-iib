@@ -23,11 +23,12 @@ public class GetConfigservice_JavaCompute extends MbJavaComputeNode {
 			outAssembly = new MbMessageAssembly(inAssembly, outMessage);
 			// ----------------------------------------------------------
 			// Add user code below
-			MbElement jdbcConfigServiceName = inAssembly.getLocalEnvironment().getRootElement().getFirstElementByPath("REST/Input/Parameters/jdbc");
+			String jdbcConfigServiceName = inAssembly.getLocalEnvironment().getRootElement().getFirstElementByPath("REST/Input/Parameters/jdbc").getValueAsString();
 			MbElement jsonOut = outMessage.getRootElement().createElementAsLastChild(MbJSON.PARSER_NAME);
+			getJDBCType4Connection(jdbcConfigServiceName, JDBC_TransactionType.MB_TRANSACTION_AUTO);
 			jsonOut.createElementAsLastChild(MbElement.TYPE_NAME, MbJSON.DATA_ELEMENT_NAME, null)//
-					.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "message", //
-							String.format("you asked me to test jdbc config service [%s]", jdbcConfigServiceName));
+			.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "message", //
+					String.format("you asked me to test jdbc config service [%s]. Test was successful.", jdbcConfigServiceName));
 			// End of user code
 			// ----------------------------------------------------------
 		} catch (MbException e) {
