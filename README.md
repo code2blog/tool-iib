@@ -58,4 +58,7 @@ code2blog_node_collector_v1_app
 JdbcConnectionTester_V1_API
 	jdbc-1 : create a flow that tests connection details defined in jdbc config service
 	
+MessageParsing_V1_APP
+	mp-1 : parse xml using ondemand parsing option
+	
 </pre>
