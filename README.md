@@ -60,5 +60,6 @@ JdbcConnectionTester_V1_API
 	
 MessageParsing_V1_APP
 	mp-1 : parse xml using ondemand parsing option
+	mp-2 : parse dfdl using immediate parse option
 	
 </pre>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:ibmDfdlExtn="http://www.ibm.com/dfdl/extensions" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:recSepFieldsFmt="http://www.ibm.com/dfdl/RecordSeparatedFieldFormat">
+    <xsd:import namespace="http://www.ibm.com/dfdl/RecordSeparatedFieldFormat" schemaLocation="IBMdefined/RecordSeparatedFieldFormat.xsd"/>
+    <xsd:annotation>
+		<xsd:appinfo source="http://www.ogf.org/dfdl/">
+			<dfdl:format encoding="{$dfdl:encoding}" escapeSchemeRef="" occursCountKind="implicit" ref="recSepFieldsFmt:RecordSeparatedFieldsFormat"/>
+		</xsd:appinfo>
+	</xsd:annotation>
+
+	<xsd:element ibmSchExtn:docRoot="true" name="contains_choice_type">
+		<xsd:complexType>
+			<xsd:sequence dfdl:initiatedContent="yes" dfdl:separator="%CR;%LF;%WSP*;" dfdl:separatorSuppressionPolicy="anyEmpty">
+				<xsd:element dfdl:initiator="[h]" name="header">
+					<xsd:complexType>
+						<xsd:sequence dfdl:initiatedContent="yes" dfdl:separator="%#124;" dfdl:separatorSuppressionPolicy="anyEmpty">
+							<xsd:element dfdl:initiator="iHead1" ibmDfdlExtn:sampleValue="head_value1" name="head_elem1" type="xsd:string"/>
+							<xsd:element dfdl:initiator="iHead2" ibmDfdlExtn:sampleValue="head_value2" name="head_elem2" type="xsd:string"/>
+							<xsd:element dfdl:initiator="iHead3" ibmDfdlExtn:sampleValue="head_value3" name="head_elem3" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element dfdl:initiator="[b]" maxOccurs="unbounded" name="body">
+					<xsd:complexType>
+						<xsd:sequence dfdl:initiatedContent="yes" dfdl:separator="%#124;" dfdl:separatorSuppressionPolicy="anyEmpty">
+							<xsd:element dfdl:initiator="iBody1" ibmDfdlExtn:sampleValue="body_value1" name="body_elem1" type="xsd:string"/>
+							<xsd:element dfdl:initiator="iBody2" ibmDfdlExtn:sampleValue="body_value2" name="body_elem2" type="xsd:string"/>
+							<xsd:element dfdl:initiator="iBody3" ibmDfdlExtn:sampleValue="body_value3" name="body_elem3" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element dfdl:initiator="[t]" name="trailer">
+					<xsd:complexType>
+						<xsd:sequence dfdl:initiatedContent="yes" dfdl:separator="%#124;" dfdl:separatorSuppressionPolicy="anyEmpty">
+							<xsd:element dfdl:initiator="iTrail1" ibmDfdlExtn:sampleValue="trailer_value1" name="trailer_elem1" type="xsd:string"/>
+							<xsd:element dfdl:initiator="iTrail2" ibmDfdlExtn:sampleValue="trailer_value2" name="trailer_elem2" type="xsd:string"/>
+							<xsd:element dfdl:initiator="iTrail3" ibmDfdlExtn:sampleValue="trailer_value3" name="trailer_elem3" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

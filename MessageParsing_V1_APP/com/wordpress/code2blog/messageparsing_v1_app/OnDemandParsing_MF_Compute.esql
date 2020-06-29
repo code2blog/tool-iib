@@ -1,0 +1,11 @@
+BROKER SCHEMA com.wordpress.code2blog.messageparsing_v1_app
+
+
+CREATE COMPUTE MODULE OnDemandParsing_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		SET OutputRoot.XMLNSC.onDemandRootElement.childElement = InputRoot.XMLNSC.root.child;
+		RETURN TRUE;
+	END;
+END MODULE;
