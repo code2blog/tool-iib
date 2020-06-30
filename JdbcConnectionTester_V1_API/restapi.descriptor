@@ -2,6 +2,7 @@
 <ns2:restapiDescriptor xmlns="http://com.ibm.etools.mft.descriptor.base" xmlns:ns2="http://com.ibm.etools.mft.descriptor.restapi" definitionType="swagger_20" definitionFile="swagger.json" implementation="gen/JdbcConnectionTester_V1_API.msgflow" https="false">
     <ns2:operations>
         <ns2:operation name="getConfigservice" implementation="getConfigservice.subflow"/>
+        <ns2:operation name="getMyPathParameter" implementation="getMyPathParameter.subflow"/>
     </ns2:operations>
     <ns2:errorHandlers/>
 </ns2:restapiDescriptor>

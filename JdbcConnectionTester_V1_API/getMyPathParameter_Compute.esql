@@ -1,0 +1,20 @@
+
+
+CREATE COMPUTE MODULE getMyPathParameter_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON';
+		SET OutputRoot.JSON.Data.message = 'i received path parameter - '
+			|| InputLocalEnvironment.REST.Input.Parameters.myPathParameter;
+		--
+		CREATE FIELD OutputRoot.JSON.Data.dummyArray IDENTITY (JSON.Array);
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.dummyArray NAME 'Item' VALUE 'happy';
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.dummyArray NAME 'Item' VALUE 'to';
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.dummyArray NAME 'Item' VALUE 'see';
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.dummyArray NAME 'Item' VALUE 'an';
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.dummyArray NAME 'Item' VALUE 'array';
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.dummyArray NAME 'Item' VALUE 'here';
+		RETURN TRUE;
+	END;
+END MODULE;

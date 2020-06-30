@@ -31,6 +31,28 @@
           "type" : "string"
         } ]
       }
+    },
+    "/test/{myPathParameter}" : {
+      "get" : {
+        "operationId" : "getMyPathParameter",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/configServiceTestResult"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve myPathParameter",
+        "parameters" : [ {
+          "required" : true,
+          "name" : "myPathParameter",
+          "in" : "path",
+          "type" : "string",
+          "description" : "use this field to study the syntax of path parameter in iib"
+        } ]
+      }
     }
   },
   "basePath" : "/jdbcconnectiontester/v1",
