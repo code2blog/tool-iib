@@ -1,0 +1,13 @@
+
+
+CREATE COMPUTE MODULE createEmployee_ComputeXML
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Propertie;
+		SET OutputRoot.XMLNSC.root.message = 'i received input message of ContentType=application/xml
+		 and InputRoot.XMLNSC.employee.name=' || InputRoot.XMLNSC.employee.name;
+		SET OutputRoot.XMLNSC.root.input_domain = FIELDNAME(InputBody);
+		
+		RETURN TRUE;
+	END;
+END MODULE;
