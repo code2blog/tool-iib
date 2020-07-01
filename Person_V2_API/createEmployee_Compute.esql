@@ -1,0 +1,11 @@
+
+--
+CREATE COMPUTE MODULE createEmployee_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+		SET OutputRoot.JSON.Data.message = 'i got a input message of Content-Type=' || InputRoot.Properties.ContentType;
+		SET OutputRoot.JSON.Data.input_domain = FIELDNAME(InputBody);
+		RETURN TRUE;
+	END;
+END MODULE;

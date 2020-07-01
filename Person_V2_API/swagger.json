@@ -40,13 +40,13 @@
           "description" : "",
           "required" : false,
           "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
-            "schema" : {
-            }
+            "schema" : { }
           },
           "201" : {
             "description" : "Created"
