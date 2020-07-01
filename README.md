@@ -6,7 +6,8 @@ Here are some of the projects in this repository
 
 Person_V2_API
 	per-1 -> expose rest api to interact with a database
-
+	per-2 -> create rest api that can cater to json and non-json data
+	
 HelloWorld_V1_APP
 	hwa-1 -> expose http endpoint and reply with static xml message of hello-user-from-iib
 

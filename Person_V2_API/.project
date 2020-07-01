@@ -1,9 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><projectDescription>
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
 	<name>Person_V2_API</name>
-	<comment/>
+	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>com.ibm.etools.mft.restapi.ui.restApiBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.ibm.etools.mft.json.builder.JSONBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 		<buildCommand>
 			<name>com.ibm.etools.mft.applib.mbprojectbuilder</name>
 			<arguments>
@@ -56,6 +67,16 @@
 		</buildCommand>
 		<buildCommand>
 			<name>com.ibm.etools.mft.pattern.capture.PatternBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.ibm.etools.mft.restapi.ui.restApiDefinitionsBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.ibm.etools.mft.policy.ui.policybuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
