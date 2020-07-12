@@ -15,7 +15,7 @@
       <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="205,20">
         <translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
       </nodes>
-      <nodes xmi:type="ComIbmTrace.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="302,25" pattern="Hello code2blog users. Records are written to user trace logs&#xD;&#xA;Local Environoment :${LocalEnvironment}">
+      <nodes xmi:type="ComIbmTrace.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="302,25" destination="file" filePath="c:\temp\myTraceFile.log" pattern="Hello code2blog users. Records are written to a file on my drive&#xD;&#xA;Local Environoment :${LocalEnvironment}">
         <translation xmi:type="utility:ConstantString" string="Trace"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
