@@ -23,7 +23,7 @@ public class Snippet {
 			String base = "ou=system";
 			env.put(Context.INITIAL_CONTEXT_FACTORY,
 					"com.sun.jndi.ldap.LdapCtxFactory");
-			env.put(Context.PROVIDER_URL, "ldap://localhost:10389");
+			env.put(Context.PROVIDER_URL, "ldap://192.168.197.1:10389");
 			env.put(Context.SECURITY_AUTHENTICATION, "simple");
 			env.put(Context.SECURITY_PRINCIPAL, serviceUserDN);
 			env.put(Context.SECURITY_CREDENTIALS, serviceUserPassword);

@@ -10,7 +10,8 @@ Person_V2_API
 	
 HelloWorld_V1_APP
 	hwa-1 -> expose http endpoint and reply with static xml message of hello-user-from-iib
-
+	hwa-2 -> demo the use of trace node
+	
 HelloWorld_V1_IS
 	hwi-1 -> expose soap webservice
 	
