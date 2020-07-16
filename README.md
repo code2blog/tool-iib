@@ -65,4 +65,7 @@ MessageParsing_V1_APP
 	mp-1 : parse xml using ondemand parsing option
 	mp-2 : parse dfdl using immediate parse option
 	
+Retry_APP
+	r-1 : build automated retry mechanism using timer notification node
+	
 </pre>

@@ -1,0 +1,15 @@
+BROKER SCHEMA com.wordpress.code2blog.retry_app
+
+
+CREATE COMPUTE MODULE trigger_based_mf_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;
+		IF InputRoot.MQRFH2.usr.retry.current_iteration < InputRoot.MQRFH2.usr.retry.threshold THEN
+			SET OutputRoot.MQRFH2.usr.retry.current_iteration = OutputRoot.MQRFH2.usr.retry.current_iteration + 1;
+			SET OutputLocalEnvironment.Destination.MQ.DestinationData.queueName = InputRoot.MQRFH2.usr.retry.inputQueue;
+			RETURN TRUE;
+		END IF;
+		RETURN FALSE;
+	END;
+END MODULE;
