@@ -1,0 +1,15 @@
+BROKER SCHEMA com.wordpress.code2blog.myappfailswitherror
+
+
+CREATE COMPUTE MODULE catch_handler_sf_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		SET OutputRoot.MQMD = InputRoot.MQMD;
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'MQRFH2';
+		SET OutputRoot.MQRFH2.usr.retry.inputQueue = InputRoot.MQMD.SourceQueue;
+		SET OutputRoot.MQRFH2.usr.retry.threshold = 3;
+		SET OutputRoot.[<+1] = InputBody;
+		RETURN TRUE;
+	END;
+END MODULE;
