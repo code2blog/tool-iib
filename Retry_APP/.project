@@ -3,6 +3,8 @@
 	<name>Retry_APP</name>
 	<comment></comment>
 	<projects>
+		<project>Retry_JP</project>
+		<project>Retry_APPJava</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
