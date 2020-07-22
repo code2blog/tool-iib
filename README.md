@@ -69,5 +69,7 @@ Retry_APP
 	r-1 : build automated retry mechanism using timer notification node
 	r-2 : build scheduled retry with timeout control node 
 	
+jenkins
+	gvy-1 : pipeline script to build and deploy bar file
 	
 </pre>
