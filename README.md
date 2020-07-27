@@ -71,5 +71,8 @@ Retry_APP
 	
 jenkins
 	gvy-1 : pipeline script to build and deploy bar file
+
+standards
+	std-1 : variable naming standards
 	
 </pre>

@@ -1,5 +1,18 @@
 
 <pre>
+Variable naming standards
+	char type / string type starts with s -> sCustomerName
+	integer type starts with i -> iCustomerId
+	blob type starts with b -> bPayload
+	boolean types / true false types starts with t -> tValid
+	row variables start with r -> rCache
+	pointers / references start with p -> pChildEnv
+		if pointers end with Env, it indicates they are pointing to Environment tree
+		if pointers end with In, it indicates they are pointing to InputRoot tree
+		if pointers end with Out, it indicates they are pointing to OutputRoot tree
+		if pointers end with ILE, it indicates they are pointing to InputLocalEnvironment tree
+		if pointers end with OLE, it indicates they are pointing to OutputLocalEnvironment tree
+
 Rest API base path should contain version number. This way you can deploy multiple versions of the api into same integration server without conflict. 
 Example: http://localhost:7800/someapi/v2/employees/
 		base path -> /someapi/v2
