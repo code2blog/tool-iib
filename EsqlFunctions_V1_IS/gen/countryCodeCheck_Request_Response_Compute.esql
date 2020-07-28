@@ -1,0 +1,18 @@
+
+--
+BROKER SCHEMA gen
+DECLARE ns NAMESPACE 'http://EsqlFunctions_V1_IS';
+
+CREATE COMPUTE MODULE countryCodeCheck_Request_Response_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		DECLARE sFirstTwoCharacters CHAR SUBSTRING(InputRoot.XMLNSC.ns:countryCodeCheck.sourceString FROM 1 FOR 2);
+		IF LENGTH(TRANSLATE(sFirstTwoCharacters, '0123456789','')) = LENGTH(sFirstTwoCharacters)-2 THEN
+			SET OutputRoot.XMLNSC.ns:countryCodeCheckResponse.responseMessage = 'input starts with two digit country code';
+		ELSE
+			SET OutputRoot.XMLNSC.ns:countryCodeCheckResponse.responseMessage = 'input does not start with two digit country code';
+		END IF;
+		RETURN TRUE;
+	END;
+END MODULE;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmLabel.msgnode="ComIbmLabel.msgnode" xmlns:ComIbmRouteToLabel.msgnode="ComIbmRouteToLabel.msgnode" xmlns:ComIbmSOAPInput.msgnode="ComIbmSOAPInput.msgnode" xmlns:ComIbmSOAPReply.msgnode="ComIbmSOAPReply.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:gen_EsqlFunctions_V1_ISInputCatchHandler.subflow="gen/EsqlFunctions_V1_ISInputCatchHandler.subflow" xmlns:gen_EsqlFunctions_V1_ISInputFailureHandler.subflow="gen/EsqlFunctions_V1_ISInputFailureHandler.subflow" xmlns:gen_EsqlFunctions_V1_ISInputHTTPTimeoutHandler.subflow="gen/EsqlFunctions_V1_ISInputHTTPTimeoutHandler.subflow" xmlns:gen_splitString_Request_Response.subflow="gen/splitString_Request_Response.subflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="gen/EsqlFunctions_V1_IS.msgflow" nsPrefix="gen_EsqlFunctions_V1_IS.msgflow">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmLabel.msgnode="ComIbmLabel.msgnode" xmlns:ComIbmRouteToLabel.msgnode="ComIbmRouteToLabel.msgnode" xmlns:ComIbmSOAPInput.msgnode="ComIbmSOAPInput.msgnode" xmlns:ComIbmSOAPReply.msgnode="ComIbmSOAPReply.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:gen_EsqlFunctions_V1_ISInputCatchHandler.subflow="gen/EsqlFunctions_V1_ISInputCatchHandler.subflow" xmlns:gen_EsqlFunctions_V1_ISInputFailureHandler.subflow="gen/EsqlFunctions_V1_ISInputFailureHandler.subflow" xmlns:gen_EsqlFunctions_V1_ISInputHTTPTimeoutHandler.subflow="gen/EsqlFunctions_V1_ISInputHTTPTimeoutHandler.subflow" xmlns:gen_countryCodeCheck_Request_Response.subflow="gen/countryCodeCheck_Request_Response.subflow" xmlns:gen_splitString_Request_Response.subflow="gen/splitString_Request_Response.subflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="gen/EsqlFunctions_V1_IS.msgflow" nsPrefix="gen_EsqlFunctions_V1_IS.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
     <translation xmi:type="utility:TranslatableString" key="EsqlFunctions_V1_IS" bundleName="gen/EsqlFunctions_V1_IS" pluginId="EsqlFunctions_V1_IS"/>
@@ -30,6 +30,12 @@
       <nodes xmi:type="gen_splitString_Request_Response.subflow:FCMComposite_1" xmi:id="FCMComposite_1_8" location="370,310">
         <translation xmi:type="utility:ConstantString" string="splitString_Request_Response"/>
       </nodes>
+      <nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="220,390" labelName="countryCodeCheck">
+        <translation xmi:type="utility:ConstantString" string="countryCodeCheck"/>
+      </nodes>
+      <nodes xmi:type="gen_countryCodeCheck_Request_Response.subflow:FCMComposite_1" xmi:id="FCMComposite_1_10" location="370,390">
+        <translation xmi:type="utility:ConstantString" string="countryCodeCheck_Request_Response"/>
+      </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.Input"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
@@ -39,6 +45,8 @@
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_10" targetNode="FCMComposite_1_10" sourceNode="FCMComposite_1_9" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_11" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_10" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
     </composition>
     <propertyOrganizer/>
     <stickyBoard>

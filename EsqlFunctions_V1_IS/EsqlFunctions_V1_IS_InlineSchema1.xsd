@@ -2,9 +2,8 @@
       <xsd:element ibmSchExtn:docRoot="true" name="splitString">
         <xsd:complexType>
           <xsd:sequence>
-          	<xsd:element name="input1" nillable="true"
-          		type="xsd:string" />
-          	<xsd:element name="delimiter" type="xsd:string"></xsd:element>
+          	<xsd:element name="input1" nillable="true" type="xsd:string"/>
+          	<xsd:element name="delimiter" type="xsd:string"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -15,4 +14,18 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-    </xsd:schema>
+    <xsd:element ibmSchExtn:docRoot="true" name="countryCodeCheck">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="sourceString" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="countryCodeCheckResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="responseMessage" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
