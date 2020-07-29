@@ -21,6 +21,7 @@ code2blog_dfdl_v2_slib
 EsqlFunctions_V1_IS
 	ef-1 -> demo programming in esql
 	ef-2 -> demo use of translate function
+	ef-3 -> regex through esql external proceduer call to java
 	
 NodeFeatures_V1_IS
 	nf-1 : expose webservice to demo xslt feature

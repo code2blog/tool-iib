@@ -9,6 +9,7 @@
   </wsdl:documentation>
   
   
+  
   <wsdl:types>
     
         <xsd:schema targetNamespace="http://EsqlFunctions_V1_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
@@ -27,6 +28,12 @@
     <wsdl:message name="countryCodeCheckResponseMsg">
     <wsdl:part element="tns:countryCodeCheckResponse" name="countryCodeCheckResult"/>
   </wsdl:message>
+    <wsdl:message name="findEmailRequestMsg">
+    <wsdl:part element="tns:findEmail" name="findEmailParameters"/>
+  </wsdl:message>
+    <wsdl:message name="findEmailResponseMsg">
+    <wsdl:part element="tns:findEmailResponse" name="findEmailResult"/>
+  </wsdl:message>
     <wsdl:portType name="EsqlFunctions_V1_IS">
     <wsdl:operation name="splitString">
       <wsdl:input message="tns:splitStringRequestMsg" name="splitStringRequest"/>
@@ -35,6 +42,10 @@
         <wsdl:operation name="countryCodeCheck">
       <wsdl:input message="tns:countryCodeCheckRequestMsg" name="countryCodeCheckRequest"/>
       <wsdl:output message="tns:countryCodeCheckResponseMsg" name="countryCodeCheckResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="findEmail">
+      <wsdl:input message="tns:findEmailRequestMsg" name="findEmailRequest"/>
+      <wsdl:output message="tns:findEmailResponseMsg" name="findEmailResponse"/>
     </wsdl:operation>
     </wsdl:portType>
   <wsdl:binding name="EsqlFunctions_V1_ISHttpBinding" type="tns:EsqlFunctions_V1_IS">
@@ -49,11 +60,20 @@
             </wsdl:output>
     </wsdl:operation>
         <wsdl:operation name="countryCodeCheck">
-      <soap:operation soapAction="http://EsqlFunctions_V1_IS/countryCodeCheck"/>
-      <wsdl:input name="countryCodeCheckRequest">
+            <soap:operation soapAction="http://EsqlFunctions_V1_IS/countryCodeCheck"/>
+            <wsdl:input name="countryCodeCheckRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+      <wsdl:output name="countryCodeCheckResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="findEmail">
+      <soap:operation soapAction="http://EsqlFunctions_V1_IS/findEmail"/>
+      <wsdl:input name="findEmailRequest">
         <soap:body use="literal"/>
       </wsdl:input>
-      <wsdl:output name="countryCodeCheckResponse">
+      <wsdl:output name="findEmailResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>

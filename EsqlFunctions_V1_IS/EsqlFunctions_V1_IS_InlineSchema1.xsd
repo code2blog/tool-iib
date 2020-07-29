@@ -28,4 +28,18 @@
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="findEmail">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="inputString" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="findEmailResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="responseMessage" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
 </xsd:schema>

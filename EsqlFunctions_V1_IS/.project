@@ -3,6 +3,7 @@
 	<name>EsqlFunctions_V1_IS</name>
 	<comment></comment>
 	<projects>
+		<project>EsqlFunctions_V1_ISJava</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

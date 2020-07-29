@@ -1,0 +1,14 @@
+BROKER SCHEMA gen
+
+CREATE PROCEDURE findEmailWithRegEx(IN sourceString CHAR, IN regEx CHAR) RETURNS CHAR
+ LANGUAGE JAVA EXTERNAL NAME "com.wordpress.code2blog.esqlfunctions_v1_isjava.RegExUtility.findEmail";
+
+CREATE COMPUTE MODULE findEmail_Request_Response_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.XMLNSC.ns:findEmailResponse.responseMessage = 
+			findEmailWithRegEx(InputBody.ns:findEmail.inputString, '(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3})');
+		RETURN TRUE;
+	END;
+
+END MODULE;

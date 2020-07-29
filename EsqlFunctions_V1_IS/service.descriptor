@@ -12,6 +12,11 @@
           <service:flow location="gen/countryCodeCheck_Request_Response.subflow" type="Request_Response"/>
         </service:flows>
       </service:operation>
+      <service:operation name="findEmail" type="request-response">
+        <service:flows>
+          <service:flow location="gen/findEmail_Request_Response.subflow" type="Request_Response"/>
+        </service:flows>
+      </service:operation>
     </service:operations>
     <service:errors>
       <service:flows>

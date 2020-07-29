@@ -9,8 +9,11 @@ Parsing wsdl binding input splitString.
 Parsing wsdl binding output splitString.
 Parsing wsdl binding input countryCodeCheck.
 Parsing wsdl binding output countryCodeCheck.
+Parsing wsdl binding input findEmail.
+Parsing wsdl binding output findEmail.
 Processing doc style for operation splitString.
 Processing doc style for operation countryCodeCheck.
+Processing doc style for operation findEmail.
 Populating WSDL schema EsqlFunctions_V1_IS.xsd.
 Creating file EsqlFunctions_V1_IS.xsd in the workspace.
 Creating file EsqlFunctions_V1_IS_InlineSchema1.xsd in the workspace.
