@@ -1,0 +1,21 @@
+BROKER SCHEMA code2blog.helloworld_v1_app
+
+
+CREATE COMPUTE MODULE ProcessLargeDataset_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		SET OutputRoot.MQMD = InputRoot.MQMD;
+		SET OutputRoot.MQMD.Persistence = MQPER_NOT_PERSISTENT;
+		SET OutputRoot.XMLNSC.pagination.minValue = CAST(COALESCE(InputRoot.XMLNSC.pagination.maxValue, '0') AS INTEGER) + 1;
+		SET OutputRoot.XMLNSC.pagination.maxValue = CAST(COALESCE(InputRoot.XMLNSC.pagination.maxValue, '0') AS INTEGER) + 100;
+		-- beyond this threshold you dont have loop any more
+		IF OutputRoot.XMLNSC.pagination.maxValue > 3000 THEN
+			RETURN FALSE;
+		END IF;
+		-- sleep to introduce delay and for user to read values off queue
+		CALL SLEEP(1000) INTO Environment.ignore;
+		RETURN TRUE;
+	END;
+
+END MODULE;
