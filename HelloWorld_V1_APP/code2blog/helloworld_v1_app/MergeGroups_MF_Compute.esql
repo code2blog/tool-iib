@@ -1,0 +1,19 @@
+BROKER SCHEMA code2blog.helloworld_v1_app
+
+
+CREATE COMPUTE MODULE MergeGroups_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		FOR pProductIn AS InputRoot.XMLNSC.electronics.product[] DO
+			CREATE LASTCHILD OF Environment.brands.{pProductIn.brand} NAME 'product';
+			SET  Environment.brands.{pProductIn.brand}.product[<] = pProductIn;
+		END FOR;
+		FOR pBrand AS Environment.brands.*[] DO
+			SET OutputRoot.XMLNSC.electronics = pBrand;
+			SET OutputLocalEnvironment.Destination.MQ.DestinationData.queueName = FIELDNAME(pBrand) || '.OUT';
+			PROPAGATE TO TERMINAL 'out';
+		END FOR;
+		RETURN FALSE;
+	END;
+END MODULE;
