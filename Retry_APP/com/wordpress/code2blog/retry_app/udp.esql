@@ -1,0 +1,6 @@
+
+--
+BROKER SCHEMA com.wordpress.code2blog.retry_app
+
+DECLARE RETRY_AT_THIS_HOUR EXTERNAL INTEGER 20;
+

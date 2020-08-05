@@ -72,6 +72,7 @@ MessageParsing_V1_APP
 Retry_APP
 	r-1 : build automated retry mechanism using timer notification node
 	r-2 : build scheduled retry with timeout control node 
+	r-3 : use udp variable in jcn node to configure retry hour 
 	
 jenkins
 	gvy-1 : pipeline script to build and deploy bar file

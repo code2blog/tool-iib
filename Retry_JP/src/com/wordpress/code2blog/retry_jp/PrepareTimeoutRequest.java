@@ -28,8 +28,10 @@ public class PrepareTimeoutRequest extends MbJavaComputeNode {
 			outAssembly = new MbMessageAssembly(inAssembly, outMessage);
 			// ----------------------------------------------------------
 			// Add user code below
+			
+			Integer udpHour = (Integer) getUserDefinedAttribute("RETRY_AT_THIS_HOUR");
 			final Date date = new Date();
-			date.setHours(22);// 22:00 is 10pm
+			date.setHours(udpHour);// 22:00 is 10pm
 			date.setDate(date.getDate() + 1);// retry date is set to day+1; that is tomorrow
 			MbDate startDate = new MbDate(date.getYear() + 1900, date.getMonth(), date.getDate());
 			MbTime startTime = new MbTime(date.getHours(), date.getMinutes(), date.getSeconds());
