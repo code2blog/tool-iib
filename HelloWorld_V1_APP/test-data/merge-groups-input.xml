@@ -8,7 +8,7 @@
 	<product>
 		<brand>SAMSUNG</brand>
 		<type>mobile</type>
-		<cost>124</cost>
+		<cost>102</cost>
 	</product>
 	<product>
 		<brand>LG</brand>
@@ -18,6 +18,6 @@
 	<product>
 		<brand>SAMSUNG</brand>
 		<type>refrigerator</type>
-		<cost>443</cost>
+		<cost>143</cost>
 	</product>
 </electronics>

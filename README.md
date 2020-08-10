@@ -13,6 +13,7 @@ HelloWorld_V1_APP
 	hwa-2 -> demo the use of trace node
 	hwa-3 -> demo pagination and looping using mq nodes
 	hwa-4 -> grouping and merging using esql
+	hwa-5 -> sorting using esql select statement
 	
 HelloWorld_V1_IS
 	hwi-1 -> expose soap webservice

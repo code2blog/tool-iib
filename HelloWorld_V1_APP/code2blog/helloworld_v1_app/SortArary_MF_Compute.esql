@@ -1,0 +1,23 @@
+
+--
+BROKER SCHEMA code2blog.helloworld_v1_app
+
+CREATE COMPUTE MODULE SortArary_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- intention of this program is to teach you select keyword in esql.
+		-- this is not an efficient solution for sorting
+		DECLARE sMinCost CHAR '';
+		DECLARE pProductOut REFERENCE TO Environment.ignore;
+		FOR pIterateOverArray AS InputRoot.XMLNSC.electronics.product[] DO
+			-- find one product from input array
+			SET sMinCost = SELECT MIN(r.cost) FROM InputRoot.XMLNSC.electronics.product[] AS r WHERE r.cost > sMinCost;
+			-- save one product to outputRoot
+			CREATE LASTCHILD OF OutputRoot.XMLNSC.electronics As pProductOut NAME 'product';
+			SET pProductOut = THE(SELECT p.brand, p.type, p.cost FROM InputRoot.XMLNSC.electronics.product[] AS p WHERE p.cost = sMinCost);
+		END FOR;
+		-- read http://www.mqseries.net/phpBB2/viewtopic.php?p=273722&highlight=#273722 for quickSort implementation in esql
+		RETURN TRUE;
+	END;
+
+END MODULE;
