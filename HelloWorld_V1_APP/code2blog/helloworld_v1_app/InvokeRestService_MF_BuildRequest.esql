@@ -1,0 +1,16 @@
+
+--
+BROKER SCHEMA code2blog.helloworld_v1_app
+
+CREATE COMPUTE MODULE InvokeRestService_MF_BuildRequest
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
+
+		SET OutputLocalEnvironment.Destination.HTTP.QueryString.param1 = 'value1';
+		SET OutputLocalEnvironment.Destination.HTTP.QueryString.param2 = 'value2';
+		RETURN TRUE;
+	END;
+
+END MODULE;

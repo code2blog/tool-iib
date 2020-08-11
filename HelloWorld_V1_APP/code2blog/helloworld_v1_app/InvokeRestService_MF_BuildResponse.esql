@@ -1,0 +1,14 @@
+
+--
+BROKER SCHEMA code2blog.helloworld_v1_app
+
+CREATE COMPUTE MODULE InvokeRestService_MF_BuildResponse
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
+		
+		SET OutputRoot.XMLNSC.person.name = InputRoot.JSON.Data.person.USERNAME;
+		RETURN TRUE;
+	END;
+END MODULE;

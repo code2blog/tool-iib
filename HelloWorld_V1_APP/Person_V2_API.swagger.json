@@ -1,0 +1,64 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "Interact with PERSON database table",
+    "description" : "Interact with PERSON database table.",
+    "version" : "1.0.0"
+  },
+  "basePath" : "/someapi/v2",
+  "tags" : [ {
+    "name" : "employees",
+    "description" : "Lists all of the employees at ACME"
+  } ],
+  "paths" : {
+    "/employees" : {
+      "get" : {
+        "tags" : [ "employees" ],
+        "summary" : "Retrieve a list of the employees",
+        "description" : "Retrieve a list of the employees",
+        "operationId" : "getEmployees",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "500" : {
+            "description" : "Something wrong in Server"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "employees" ],
+        "summary" : "Creates a new employee",
+        "description" : "Creates a new employee in the database.  The <b>EMPNO</b> that you specify must be unique. The employee will not have a department assigned.",
+        "operationId" : "createEmployee",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : { }
+          },
+          "201" : {
+            "description" : "Created"
+          },
+          "500" : {
+            "description" : "A problem occurred creating the employee"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { },
+  "schemes" : [ "http" ],
+  "host" : "localhost:7800"
+}

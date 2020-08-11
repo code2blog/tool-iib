@@ -14,6 +14,7 @@ HelloWorld_V1_APP
 	hwa-3 -> demo pagination and looping using mq nodes
 	hwa-4 -> grouping and merging using esql
 	hwa-5 -> sorting using esql select statement
+	hwa-6 -> invoke rest api using rest request node
 	
 HelloWorld_V1_IS
 	hwi-1 -> expose soap webservice
