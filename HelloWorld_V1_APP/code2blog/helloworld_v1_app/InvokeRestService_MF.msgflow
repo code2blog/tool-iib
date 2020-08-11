@@ -24,7 +24,7 @@
       <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="383,101">
         <translation xmi:type="utility:ConstantString" string="Pass through-ignore rest errors"/>
       </nodes>
-      <nodes xmi:type="ComIbmRESTRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="272,101" definitionFile="Person_V2_API.swagger.json" operationName="getEmployees">
+      <nodes xmi:type="ComIbmRESTRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="272,101" definitionType="swagger_20" definitionFile="Person_V2_API.swagger.json" operationName="getEmployees">
         <translation xmi:type="utility:ConstantString" string="REST Request"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
