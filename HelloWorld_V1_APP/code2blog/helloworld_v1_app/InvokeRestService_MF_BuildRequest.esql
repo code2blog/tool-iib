@@ -10,6 +10,10 @@ CREATE COMPUTE MODULE InvokeRestService_MF_BuildRequest
 
 		SET OutputLocalEnvironment.Destination.HTTP.QueryString.param1 = 'value1';
 		SET OutputLocalEnvironment.Destination.HTTP.QueryString.param2 = 'value2';
+
+		-- This Person api doesnot require any header values or query parameters,
+		-- i have added them to show you how we used to pass values with http request node. Observe the use of Destination.HTTP
+
 		RETURN TRUE;
 	END;
 
