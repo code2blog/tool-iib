@@ -81,5 +81,8 @@ jenkins
 
 standards
 	std-1 : variable naming standards
+
+MockService_APP
+	ms-1 : use xslt node to create json mock response
 	
 </pre>

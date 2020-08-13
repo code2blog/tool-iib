@@ -1,0 +1,12 @@
+
+--
+CREATE COMPUTE MODULE MockJsonResponse_MF_BuildXmlForXslt
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
+		
+		SET OutputRoot.XMLNSC.root.child = 'value';
+		RETURN TRUE;
+	END;
+END MODULE;
