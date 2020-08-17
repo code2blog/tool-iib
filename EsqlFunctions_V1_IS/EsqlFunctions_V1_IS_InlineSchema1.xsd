@@ -2,8 +2,8 @@
       <xsd:element ibmSchExtn:docRoot="true" name="splitString">
         <xsd:complexType>
           <xsd:sequence>
-          	<xsd:element name="input1" nillable="true" type="xsd:string"/>
-          	<xsd:element name="delimiter" type="xsd:string"/>
+          	<xsd:element name="input1" nillable="true" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+          	<xsd:element name="delimiter" type="xsd:string" maxOccurs="1" minOccurs="1"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -17,7 +17,7 @@
     <xsd:element ibmSchExtn:docRoot="true" name="countryCodeCheck">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="sourceString" nillable="true" type="xsd:string"/>
+        <xsd:element name="sourceString" nillable="true" type="xsd:string" maxOccurs="1" minOccurs="1"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
@@ -31,7 +31,7 @@
     <xsd:element ibmSchExtn:docRoot="true" name="findEmail">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="inputString" nillable="true" type="xsd:string"/>
+        <xsd:element name="inputString" nillable="true" type="xsd:string" maxOccurs="1" minOccurs="1"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
