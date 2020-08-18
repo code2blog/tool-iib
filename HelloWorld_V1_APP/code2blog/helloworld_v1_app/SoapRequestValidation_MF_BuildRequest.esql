@@ -1,0 +1,16 @@
+
+--
+BROKER SCHEMA code2blog.helloworld_v1_app
+DECLARE ns NAMESPACE 'http://EsqlFunctions_V1_IS';
+
+CREATE COMPUTE MODULE SoapRequestValidation_MF_BuildRequest
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
+		
+		SET OutputRoot.XMLNSC.ns:findEmail.inputString = 'find email address vishnu31122013@gmail.com from this input string field';
+		RETURN TRUE;
+	END;
+
+END MODULE;

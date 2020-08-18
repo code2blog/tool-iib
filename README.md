@@ -15,6 +15,7 @@ HelloWorld_V1_APP
 	hwa-4 -> grouping and merging using esql
 	hwa-5 -> sorting using esql select statement
 	hwa-6 -> invoke rest api using rest request node
+	hwa-7 -> invoke soap service and explain xsd validation options such as exception and exception list
 	
 HelloWorld_V1_IS
 	hwi-1 -> expose soap webservice

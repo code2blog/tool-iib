@@ -1,0 +1,14 @@
+
+--
+BROKER SCHEMA code2blog.helloworld_v1_app
+
+CREATE COMPUTE MODULE SoapRequestValidation_MF_CheckResponse
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
+		
+		SET OutputRoot.XMLNSC.response.message = 'take the flow into debug mode to study the xsd validation behavior';
+		RETURN TRUE;
+	END;
+END MODULE;

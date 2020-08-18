@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="EsqlFunctions_V1_IS" targetNamespace="http://EsqlFunctions_V1_IS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://EsqlFunctions_V1_IS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="EsqlFunctions_V1_ISHttpBinding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  
+  
+  
+  <wsdl:types>
+    
+        <xsd:schema targetNamespace="http://EsqlFunctions_V1_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+<xsd:include schemaLocation="EsqlFunctions_V1_IS_InlineSchema1.xsd"/>
+</xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="splitStringRequestMsg">
+    <wsdl:part element="tns:splitString" name="splitStringParameters"/>
+  </wsdl:message>
+  <wsdl:message name="splitStringResponseMsg">
+    <wsdl:part element="tns:splitStringResponse" name="splitStringResult"/>
+  </wsdl:message>
+    <wsdl:message name="countryCodeCheckRequestMsg">
+    <wsdl:part element="tns:countryCodeCheck" name="countryCodeCheckParameters"/>
+  </wsdl:message>
+    <wsdl:message name="countryCodeCheckResponseMsg">
+    <wsdl:part element="tns:countryCodeCheckResponse" name="countryCodeCheckResult"/>
+  </wsdl:message>
+    <wsdl:message name="findEmailRequestMsg">
+    <wsdl:part element="tns:findEmail" name="findEmailParameters"/>
+  </wsdl:message>
+    <wsdl:message name="findEmailResponseMsg">
+    <wsdl:part element="tns:findEmailResponse" name="findEmailResult"/>
+  </wsdl:message>
+    <wsdl:portType name="EsqlFunctions_V1_IS">
+    <wsdl:operation name="splitString">
+      <wsdl:input message="tns:splitStringRequestMsg" name="splitStringRequest"/>
+      <wsdl:output message="tns:splitStringResponseMsg" name="splitStringResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="countryCodeCheck">
+      <wsdl:input message="tns:countryCodeCheckRequestMsg" name="countryCodeCheckRequest"/>
+      <wsdl:output message="tns:countryCodeCheckResponseMsg" name="countryCodeCheckResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="findEmail">
+      <wsdl:input message="tns:findEmailRequestMsg" name="findEmailRequest"/>
+      <wsdl:output message="tns:findEmailResponseMsg" name="findEmailResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
+  <wsdl:binding name="EsqlFunctions_V1_ISHttpBinding" type="tns:EsqlFunctions_V1_IS">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="splitString">
+            <soap:operation soapAction="http://EsqlFunctions_V1_IS/splitString"/>
+            <wsdl:input name="splitStringRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+      <wsdl:output name="splitStringResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="countryCodeCheck">
+            <soap:operation soapAction="http://EsqlFunctions_V1_IS/countryCodeCheck"/>
+            <wsdl:input name="countryCodeCheckRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+      <wsdl:output name="countryCodeCheckResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="findEmail">
+      <soap:operation soapAction="http://EsqlFunctions_V1_IS/findEmail"/>
+      <wsdl:input name="findEmailRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findEmailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    </wsdl:binding>
+  <wsdl:service name="EsqlFunctions_V1_ISHttpService">
+    <wsdl:port binding="tns:EsqlFunctions_V1_ISHttpBinding" name="EsqlFunctions_V1_ISHttpPort">
+      <soap:address location="http://localhost:7800/EsqlFunctions_V1_IS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

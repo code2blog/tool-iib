@@ -1,0 +1,28 @@
+
+
+Importing file: C:\vishnu\app_group\repository\github_code2blog\tool-iib\EsqlFunctions_V1_IS\EsqlFunctions_V1_IS.wsdl
+
+The WSDL import will proceed with bindings EsqlFunctions_V1_ISHttpBinding.
+Creating wsdl schema document for file:///C:/vishnu/app_group/repository/github_code2blog/tool-iib/EsqlFunctions_V1_IS/EsqlFunctions_V1_IS.wsdl.
+Parsing wsdl binding {http://EsqlFunctions_V1_IS}EsqlFunctions_V1_ISHttpBinding.
+Parsing wsdl binding input splitString.
+Parsing wsdl binding output splitString.
+Parsing wsdl binding input countryCodeCheck.
+Parsing wsdl binding output countryCodeCheck.
+Parsing wsdl binding input findEmail.
+Parsing wsdl binding output findEmail.
+Processing doc style for operation splitString.
+Processing doc style for operation countryCodeCheck.
+Processing doc style for operation findEmail.
+Populating WSDL schema EsqlFunctions_V1_IS.xsd.
+Creating file EsqlFunctions_V1_IS.xsd in the workspace.
+Creating file /HelloWorld_V1_APP/EsqlFunctions_V1_IS_InlineSchema1.xsd in the workspace.
+Copying source WSDL EsqlFunctions_V1_IS.wsdl to EsqlFunctions_V1_IS.wsdl.
+
+Elapsed time processing this message definition file: 1.121 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

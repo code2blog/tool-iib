@@ -8,6 +8,8 @@ CREATE COMPUTE MODULE findEmail_Request_Response_Compute
 	BEGIN
 		SET OutputRoot.XMLNSC.ns:findEmailResponse.responseMessage = 
 			findEmailWithRegEx(InputBody.ns:findEmail.inputString, '(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3})');
+			
+		SET OutputRoot.XMLNSC.ns:findEmailResponse.additional_field_not_part_of_wsdl = 'will this cause validation errors';
 		RETURN TRUE;
 	END;
 
