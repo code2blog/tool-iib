@@ -2,11 +2,14 @@
 --
 BROKER SCHEMA code2blog.nomq_app
 
-CREATE COMPUTE MODULE InvokeHttpServiceOverProxy_MF_Compute
+CREATE COMPUTE MODULE InvokeHttpServiceOverProxy_MF_AvoidRedirects
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
 		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
+
+		SET OutputRoot.XMLNSC.response.string = CAST(InputRoot.BLOB.BLOB AS CHAR CCSID InputRoot.Properties.CodedCharSetId);
+		SET OutputRoot.XMLNSC.response.payload = InputBody;
 		RETURN TRUE;
 	END;
 END MODULE;
