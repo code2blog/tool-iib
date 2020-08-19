@@ -9,7 +9,7 @@
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,20" URLSpecifier="/nomq_app/invokehttpserviceoverproxy_mf">
         <translation xmi:type="utility:ConstantString" string="HTTP Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="203,20" URLSpecifier="https://www.ibm.com/support/knowledgecenter/SSMKHH_9.0.0/com.ibm.etools.mft.doc/ac04565_.htm">
+      <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="203,20" URLSpecifier="http://www.http2demo.io/?user=code2blog&amp;testing=proxy" httpProxyLocation="http://localhost:8085" httpMethod="GET">
         <translation xmi:type="utility:ConstantString" string="HTTP Request"/>
       </nodes>
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="109,20" computeExpression="esql://routine/code2blog.nomq_app#InvokeHttpServiceOverProxy_MF_Compute.Main">
