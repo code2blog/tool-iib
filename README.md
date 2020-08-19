@@ -85,5 +85,8 @@ standards
 
 MockService_APP
 	ms-1 : use xslt node to create json mock response
+
+NoMQ_APP
+	nm-1 : demo how to access a webservice over http proxy
 	
 </pre>
