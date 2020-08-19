@@ -1,0 +1,11 @@
+BROKER SCHEMA code2blog.nomq_app
+
+
+CREATE COMPUTE MODULE InvokeHttpServiceOverProxy_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
+		RETURN TRUE;
+	END;
+END MODULE;
