@@ -88,5 +88,8 @@ MockService_APP
 
 NoMQ_APP
 	nm-1 : demo how to access a webservice over http proxy
+
+ReadIIBFiles_APP
+	rf-1 : create a file explorer tool in iib, that can list folder contents and export directories as zip files
 	
 </pre>
