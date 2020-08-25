@@ -1,0 +1,14 @@
+
+--
+BROKER SCHEMA code2blog.helloworld_v1_app
+
+CREATE COMPUTE MODULE MQGetDemo_MF_RemoveMQHeaders
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
+		SET OutputRoot.Properties.ContentType = 'text/plain';
+		
+		SET OutputRoot.BLOB = InputRoot.BLOB;
+	END;
+END MODULE;
