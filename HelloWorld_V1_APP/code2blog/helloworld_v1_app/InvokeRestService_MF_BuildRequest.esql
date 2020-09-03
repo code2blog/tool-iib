@@ -14,6 +14,23 @@ CREATE COMPUTE MODULE InvokeRestService_MF_BuildRequest
 		-- This Person api doesnot require any header values or query parameters,
 		-- i have added them to show you how we used to pass values with http request node. Observe the use of Destination.HTTP
 
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON';
+		SET OutputRoot.JSON.Data.allOrNone = FALSE;
+		CREATE FIELD OutputRoot.JSON.Data.records IDENTITY (JSON.Array);
+		
+		DECLARE pRecordsArrayOut REFERENCE TO Environment.ignore;
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.records AS pRecordsArrayOut NAME 'Item';
+		SET pRecordsArrayOut.attributes.type = 'payment';
+		SET pRecordsArrayOut.id = 'abc';
+		SET pRecordsArrayOut.status = 'Completed';
+		
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.records AS pRecordsArrayOut NAME 'Item';
+		SET pRecordsArrayOut.attributes.type = 'payment';
+		SET pRecordsArrayOut.id = 'def';
+		SET pRecordsArrayOut.status = 'Completed';
+		SET pRecordsArrayOut.date = '2020-08-15';
+		SET pRecordsArrayOut.number = '20102';
+		
 		RETURN TRUE;
 	END;
 
