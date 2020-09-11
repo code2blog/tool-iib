@@ -5,32 +5,30 @@ BROKER SCHEMA code2blog.helloworld_v1_app
 CREATE COMPUTE MODULE InvokeRestService_MF_BuildRequest
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
+		DECLARE pArrayOut2 REFERENCE TO Environment;
+		DECLARE pArrayOut REFERENCE TO Environment.ignore_please_ignore_this_assignment;
+		DECLARE integerVALUE INTEGER;
+
 		SET OutputRoot.Properties.CodedCharSetId = InputRoot.Properties.CodedCharSetId;
 		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
 
 		SET OutputLocalEnvironment.Destination.HTTP.QueryString.param1 = 'value1';
 		SET OutputLocalEnvironment.Destination.HTTP.QueryString.param2 = 'value2';
-
 		-- This Person api doesnot require any header values or query parameters,
 		-- i have added them to show you how we used to pass values with http request node. Observe the use of Destination.HTTP
 
 		CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON';
-		SET OutputRoot.JSON.Data.allOrNone = FALSE;
-		CREATE FIELD OutputRoot.JSON.Data.records IDENTITY (JSON.Array);
-		
-		DECLARE pRecordsArrayOut REFERENCE TO Environment.ignore;
-		CREATE LASTCHILD OF OutputRoot.JSON.Data.records AS pRecordsArrayOut NAME 'Item';
-		SET pRecordsArrayOut.attributes.type = 'payment';
-		SET pRecordsArrayOut.id = 'abc';
-		SET pRecordsArrayOut.status = 'Completed';
-		
-		CREATE LASTCHILD OF OutputRoot.JSON.Data.records AS pRecordsArrayOut NAME 'Item';
-		SET pRecordsArrayOut.attributes.type = 'payment';
-		SET pRecordsArrayOut.id = 'def';
-		SET pRecordsArrayOut.status = 'Completed';
-		SET pRecordsArrayOut.date = '2020-08-15';
-		SET pRecordsArrayOut.number = '20102';
-		
+		-- developer you can ignore this assignment, but declartion is important
+		CREATE FIELD OutputRoot.JSON.Data.rootArrayField IDENTITY (JSON.Array);
+
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.rootArrayField AS pArrayOut NAME 'Item';
+		SET pArrayOut.childOne.childTwo = 'hello';
+		SET pArrayOut.siblingOne = 'abc';
+
+		CREATE LASTCHILD OF OutputRoot.JSON.Data.rootArrayField AS pArrayOut NAME 'Item';
+		SET pArrayOut.childOne.childTwo = 'code2blog';
+		SET pArrayOut.siblingOne = 'def';
+
 		RETURN TRUE;
 	END;
 
