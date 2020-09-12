@@ -1,0 +1,24 @@
+
+
+Importing file: C:\vishnu\workspace\iib-welcome4\CustomService\CustomerInfoService.wsdl
+
+Copying source WSDL CustomerInfoService.wsdl to CustomerInfoService.wsdl.
+The WSDL import will proceed with bindings CustomerInfoSOAP_HTTP_Binding.
+Creating wsdl schema document for file:///C:/vishnu/workspace/iib-welcome4/CustomService/CustomerInfoService.wsdl.
+Parsing wsdl binding {http://tempuri.org/CustomerInfo}CustomerInfoSOAP_HTTP_Binding.
+Parsing wsdl binding input Operation1.
+Parsing wsdl binding output Operation1.
+Parsing wsdl binding fault Operation1_Fault.
+Processing doc style for operation Operation1.
+Populating WSDL schema CustomerInfoService.xsd.
+Creating file CustomerInfoService.xsd in the workspace.
+Creating file /DemoMappingNode_IS/Customer_Infomsd_WSDLGenWrapper.xsd in the workspace.
+Creating file /DemoMappingNode_IS/Customer_Infomsd.xsd in the workspace.
+
+Elapsed time processing this message definition file: 1.408 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+name="CustomerInfo" targetNamespace="http://tempuri.org/CustomerInfo" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:tns="http://tempuri.org/CustomerInfo" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="CustomerInfoSOAP_HTTP_Binding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/CustomerInfo" xmlns:mrm="http://tempuri.org/CustomerInfo">
+<xsd:include schemaLocation="org/tempuri/customerinfo/Customer_Infomsd_WSDLGenWrapper.xsd"/>
+</xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import namespace="http://tempuri.org/CustomerInfo" schemaLocation="Customer_Infomsd.xsd"></xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="Operation1_in">
+    <wsdl:part element="tns:CustomerDetail" name="CustomerDetail"/>
+  </wsdl:message>
+  <wsdl:message name="Operation1_out">
+    <wsdl:part element="tns:CustomerBill" name="CustomerBill"/>
+  </wsdl:message>
+  <wsdl:message name="Operation1_fault1">
+    <wsdl:part element="tns:Error" name="Error"/>
+  </wsdl:message>
+  <wsdl:portType name="CustomerInfoPortType">
+    <wsdl:operation name="Operation1">
+      <wsdl:input message="tns:Operation1_in" name="Operation1_Input"/>
+      <wsdl:output message="tns:Operation1_out" name="Operation1_Output"/>
+      <wsdl:fault message="tns:Operation1_fault1" name="Operation1_Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerInfoSOAP_HTTP_Binding" type="tns:CustomerInfoPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Operation1">
+      <soap:operation soapAction="CustomerInfo"/>
+      <wsdl:input name="Operation1_Input">
+        <soap:body parts="CustomerDetail" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Operation1_Output">
+        <soap:body parts="CustomerBill" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Operation1_Fault">
+        <soap:fault name="Operation1_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerInfoSOAP_HTTP_Service">
+    <wsdl:port binding="tns:CustomerInfoSOAP_HTTP_Binding" name="CustomerInfoSOAP_HTTP_Port">
+      <soap:address location="http://localhost:7800/CustomerInfoSOAP_HTTP_Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

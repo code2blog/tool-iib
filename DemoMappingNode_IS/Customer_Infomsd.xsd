@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema 
+targetNamespace="http://tempuri.org/CustomerInfo" xmlns:tns="http://tempuri.org/CustomerInfo" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+  <xsd:element name="CustomerId" type="xsd:int"/>
+  <xsd:element name="CustomerFirstName" type="xsd:string"/>
+  <xsd:element name="CustomerLastName" type="xsd:string"/>
+  <xsd:element name="CustomerType" type="xsd:string"/>
+  <xsd:element name="ModeOfPayment" type="xsd:string"/>
+  <xsd:element name="Items">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element name="ProductCode" type="xsd:int"/>
+        <xsd:element name="ProductDescription" type="xsd:string"/>
+        <xsd:element name="Category" type="xsd:string"/>
+        <xsd:element name="Price" type="xsd:double"/>
+        <xsd:element name="Quantity" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="OrderDate" type="xsd:date"/>
+  <xsd:element name="ShippingDate" type="xsd:date"/>
+  <xsd:element name="CustomerContact" type="xsd:double"/>
+  <xsd:element name="CustomerAddress" type="xsd:string"/>
+  <xsd:element name="CustomerFullName" type="xsd:string"/>
+  <xsd:element name="OrderProductDetails">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="1" minOccurs="1">
+        <xsd:element name="Product" type="xsd:string"/>
+        <xsd:element name="Price" type="xsd:double"/>
+        <xsd:element name="Quantity" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="TotalAmount" type="xsd:double"/>
+  <xsd:element name="CustomerDiscount" type="xsd:string"/>
+  <xsd:element name="FinalAmount" type="xsd:double"/>
+  <xsd:element name="ShippingAddress" type="xsd:string"/>
+  <xsd:complexType name="CustomerDetail">
+    <xsd:sequence>
+      <xsd:element ref="tns:CustomerId"/>
+      <xsd:element ref="tns:CustomerFirstName"/>
+      <xsd:element ref="tns:CustomerLastName"/>
+      <xsd:element ref="tns:CustomerType"/>
+      <xsd:element ref="tns:ModeOfPayment"/>
+      <xsd:element maxOccurs="5" ref="tns:Items"/>
+      <xsd:element ref="tns:OrderDate"/>
+      <xsd:element ref="tns:ShippingDate"/>
+      <xsd:element ref="tns:CustomerContact"/>
+      <xsd:element ref="tns:CustomerAddress"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerBill">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="tns:CustomerId"/>
+      <xsd:element minOccurs="0" ref="tns:CustomerFullName"/>
+      <xsd:element minOccurs="0" ref="tns:CustomerType"/>
+      <xsd:element maxOccurs="5" minOccurs="0" ref="tns:OrderProductDetails"/>
+      <xsd:element minOccurs="0" ref="tns:TotalAmount"/>
+      <xsd:element minOccurs="0" ref="tns:CustomerDiscount"/>
+      <xsd:element minOccurs="0" ref="tns:FinalAmount"/>
+      <xsd:element minOccurs="0" ref="tns:ModeOfPayment"/>
+      <xsd:element minOccurs="0" ref="tns:OrderDate"/>
+      <xsd:element minOccurs="0" ref="tns:ShippingDate"/>
+      <xsd:element minOccurs="0" ref="tns:CustomerContact"/>
+      <xsd:element minOccurs="0" ref="tns:ShippingAddress"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="faultcode" type="xsd:int"/>
+  <xsd:element name="faultMessage" type="xsd:string"/>
+  <xsd:complexType name="Error">
+    <xsd:sequence>
+      <xsd:element ref="tns:faultcode"/>
+      <xsd:element ref="tns:faultMessage"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" ibmSchExtn:docRoot="true"
+   name="CustomerDetail" type="tns:CustomerDetail">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerDetail;XSDElementDeclaration=18$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" ibmSchExtn:docRoot="true" 
+  name="CustomerBill" type="tns:CustomerBill">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/CustomerBill;XSDElementDeclaration=19$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" ibmSchExtn:docRoot="true" 
+  name="Error" type="tns:Error">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/Error;XSDElementDeclaration=20$MRObject"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

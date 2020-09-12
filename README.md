@@ -92,5 +92,8 @@ NoMQ_APP
 
 ReadIIBFiles_APP
 	rf-1 : create a file explorer tool in iib, that can list folder contents and export directories as zip files
+
+DemoMappingNode_IS
+	dmn-1 : demo the creation of soap integration service and how to use automapping feature of iib
 	
 </pre>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="gen" version="8.0.5.0" xmlns:map="gen">
+    <input path="/Customer_Infomsd.xsd"/>
+    <output path="/Customer_Infomsd.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="in" uri="http://tempuri.org/CustomerInfo"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="Operation1_Request_Response_Mapping">
+        <input namespace="http://tempuri.org/CustomerInfo" path="mb:msg(CustomerDetail,assembly,XMLNSC,Properties)" var="MessageAssembly"/>
+        <output namespace="http://tempuri.org/CustomerInfo" path="mb:msg(CustomerBill,assembly,XMLNSC,Properties)" var="MessageAssembly1"/>
+        <move automap="true">
+            <input path="$MessageAssembly/CustomerDetail/CustomerId"/>
+            <output path="$MessageAssembly1/CustomerBill/CustomerId"/>
+        </move>
+        <move automap="true">
+            <input path="$MessageAssembly/CustomerDetail/CustomerType"/>
+            <output path="$MessageAssembly1/CustomerBill/CustomerType"/>
+        </move>
+        <move automap="true">
+            <input path="$MessageAssembly/CustomerDetail/ModeOfPayment"/>
+            <output path="$MessageAssembly1/CustomerBill/ModeOfPayment"/>
+        </move>
+        <move automap="true">
+            <input path="$MessageAssembly/CustomerDetail/Items/Price"/>
+            <output path="$MessageAssembly1/CustomerBill/OrderProductDetails/Price"/>
+        </move>
+        <move automap="true">
+            <input path="$MessageAssembly/CustomerDetail/Items/Quantity"/>
+            <output path="$MessageAssembly1/CustomerBill/OrderProductDetails/Quantity"/>
+        </move>
+        <move automap="true">
+            <input path="$MessageAssembly/CustomerDetail/OrderDate"/>
+            <output path="$MessageAssembly1/CustomerBill/OrderDate"/>
+        </move>
+        <move automap="true">
+            <input path="$MessageAssembly/CustomerDetail/ShippingDate"/>
+            <output path="$MessageAssembly1/CustomerBill/ShippingDate"/>
+        </move>
+        <move automap="true">
+            <input path="$MessageAssembly/CustomerDetail/CustomerContact"/>
+            <output path="$MessageAssembly1/CustomerBill/CustomerContact"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>
