@@ -1,0 +1,25 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:cus="http://tempuri.org/CustomerInfo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cus:CustomerDetail>
+         <cus:CustomerId>10</cus:CustomerId>
+         <cus:CustomerFirstName>?</cus:CustomerFirstName>
+         <cus:CustomerLastName>?</cus:CustomerLastName>
+         <cus:CustomerType>Regular</cus:CustomerType>
+         <cus:ModeOfPayment>?</cus:ModeOfPayment>
+         <!--1 to 5 repetitions:-->
+         <cus:Items>
+            <ProductCode>123</ProductCode>
+            <ProductDescription>?</ProductDescription>
+            <Category>?</Category>
+            <Price>123</Price>
+            <Quantity>123</Quantity>
+         </cus:Items>
+         <cus:OrderDate>2019-05-03</cus:OrderDate>
+         <cus:ShippingDate>2019-05-03</cus:ShippingDate>
+         <cus:CustomerContact>123</cus:CustomerContact>
+         <cus:CustomerAddress>?</cus:CustomerAddress>
+      </cus:CustomerDetail>
+   </soapenv:Body>
+</soapenv:Envelope>
