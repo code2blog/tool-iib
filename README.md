@@ -95,5 +95,8 @@ ReadIIBFiles_APP
 
 DemoMappingNode_IS
 	dmn-1 : demo the creation of soap integration service and how to use automapping feature of iib
+
+XmlToCsv_APP
+	xc-1 : convert a message from xml to csv using dfdl
 	
 </pre>

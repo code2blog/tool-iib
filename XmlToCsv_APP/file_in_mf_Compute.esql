@@ -1,0 +1,22 @@
+
+
+--
+CREATE COMPUTE MODULE file_in_mf_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		SET OutputRoot.Properties.MessageType = '{}:school';
+		SET OutputRoot.Properties.MessageFormat = '';
+		SET OutputRoot.Properties.MessageSet = '';
+		
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'DFDL';
+		CREATE FIELD OutputRoot.DFDL.school;
+		DECLARE pTeacherOut REFERENCE TO Environment.ignore;
+		FOR pTeacherIn AS InputRoot.XMLNSC.school.teacher[] DO
+			CREATE LASTCHILD OF OutputRoot.DFDL.school AS pTeacherOut NAME 'teacher';
+			SET pTeacherOut.name = pTeacherIn.name;
+			SET pTeacherOut.subject = pTeacherIn.subject;
+		END FOR;
+		RETURN TRUE;
+	END;
+END MODULE;

@@ -1,0 +1,12 @@
+<school>
+	<teacher> 
+		<name>abc</name>
+		<subject>maths</subject>
+	</teacher>
+
+	<teacher>
+		<name>def</name>
+		<subject>science</subject>
+	</teacher>
+
+</school>

@@ -1,0 +1,12 @@
+
+
+Importing file: C:\Users\Vishnu\AppData\Local\IBM\IIBT10-config\10.0.0.20\configuration\org.eclipse.osgi\195\0\.cp\formats\ibm\RecordSeparatedFieldFormat.xsd
+
+
+Elapsed time processing this message definition file: 0.417 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+
