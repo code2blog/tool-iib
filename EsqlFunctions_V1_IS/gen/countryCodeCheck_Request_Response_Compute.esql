@@ -13,6 +13,12 @@ CREATE COMPUTE MODULE countryCodeCheck_Request_Response_Compute
 		ELSE
 			SET OutputRoot.XMLNSC.ns:countryCodeCheckResponse.responseMessage = 'input does not start with two digit country code';
 		END IF;
+		--
+		SET OutputRoot.XMLNSC.ns:countryCodeCheckResponse.sizeOfInputSoapMessage = 
+			LENGTH(
+				ASBITSTREAM(
+					InputBody CCSID InputRoot.Properties.CodedCharSetId ENCODING InputRoot.Properties.Encoding));
+		
 		RETURN TRUE;
 	END;
 END MODULE;
