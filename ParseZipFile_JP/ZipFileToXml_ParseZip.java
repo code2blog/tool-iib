@@ -54,7 +54,13 @@ public class ZipFileToXml_ParseZip extends MbJavaComputeNode {
 			if (!(array instanceof byte[])) {
 				throw new IllegalArgumentException("byte array not found");
 			}
-			InputStream is = new ByteArrayInputStream((byte[]) array);
+			//
+			byte[] byteMessage = (byte[]) array;
+			System.out.println("blob size : "+ byteMessage.length);
+			//
+			System.out.println("size for non blob domains : " + message.getBuffer().length);
+			//
+			InputStream is = new ByteArrayInputStream(byteMessage);
 			ZipInputStream zis = new ZipInputStream(is);
 			ZipEntry entry = null;
 			Map<String, String> xmlEntries = new HashMap();

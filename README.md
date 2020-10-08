@@ -51,7 +51,8 @@ KafkaDemo_V1_APP
 
 ParseZipFile_MFP
 	zip-1 : read zip file with pdf and create multiple xml files.
-
+	zip-2 : demo how to figure out size of input message in java compute node
+	
 SendEmail_V1_APP
 	se-1 : use email output node to send email
 	se-2 : send excel file as attachment
