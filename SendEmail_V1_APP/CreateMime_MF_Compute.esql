@@ -27,10 +27,10 @@ CREATE COMPUTE MODULE CreateMime_MF_Compute
 		-- First part:
 		-- Create the body of the email.
 		-- The body of the email has the text 'This is the main body of the email.'.
-		CREATE FIELD P1."Content-Type" TYPE NameValue VALUE 'text/plain; charset=us-ascii';
-		CREATE FIELD P1."Content-Transfer-Encoding" TYPE NameValue VALUE '8bit';
+		CREATE FIELD P1."Content-Type" TYPE NameValue VALUE 'text/html; charset=us-ascii';
+		CREATE FIELD P1."Content-Transfer-Encoding" TYPE NameValue VALUE 'base64';
 		CREATE LASTCHILD OF P1 TYPE Name NAME 'Data';
-		CREATE LASTCHILD OF P1.Data DOMAIN('BLOB') PARSE(CAST('This is the main body of the email.'
+		CREATE LASTCHILD OF P1.Data DOMAIN('BLOB') PARSE(CAST('PCFET0NUWVBFIGh0bWw+DQo8aHRtbD4NCjxib2R5Pg0KDQo8aDI+QW4gVW5vcmRlcmVkIEhUTUwgTGlzdDwvaDI+DQoNCjx1bD4NCiAgPGxpPkNvZmZlZTwvbGk+DQogIDxsaT5UZWE8L2xpPg0KICA8bGk+TWlsazwvbGk+DQo8L3VsPiAgDQoNCjxoMj5BbiBPcmRlcmVkIEhUTUwgTGlzdDwvaDI+DQoNCjxvbD4NCiAgPGxpPkNvZmZlZTwvbGk+DQogIDxsaT5UZWE8L2xpPg0KICA8bGk+TWlsazwvbGk+DQo8L29sPiANCg0KPC9ib2R5Pg0KPC9odG1sPg0K'
 		AS BLOB CCSID 1208));
 
 		CREATE LASTCHILD OF M.Parts TYPE Name NAME 'Part';
@@ -39,6 +39,8 @@ CREATE COMPUTE MODULE CreateMime_MF_Compute
 		-- Create the attachment of an email.
 		-- The attachment is called 'attachment.txt' and contains the text 'This is an attachment.'.
 		CREATE FIELD P2."Content-Type" TYPE NameValue VALUE 'text/plain; charset=us-ascii; name=attachment.txt';
+		-- this line informs the email client not to display attachment inline
+		CREATE FIELD P2."Content-Dispostion" TYPE NameValue VALUE 'attachment; filename="attachment.txt"';
 		CREATE FIELD P2."Content-Transfer-Encoding" TYPE NameValue VALUE '8bit';
 		CREATE LASTCHILD OF P2 TYPE Name NAME 'Data';
 		CREATE LASTCHILD OF P2.Data DOMAIN('BLOB') PARSE(CAST('This is an attachment.' AS BLOB CCSID 1208));

@@ -56,6 +56,7 @@ ParseZipFile_MFP
 SendEmail_V1_APP
 	se-1 : use email output node to send email
 	se-2 : send excel file as attachment
+	se-3 : send html in email
 	
 WSSecurityDemo_V1_APP
 	wss-1 : invoke soap service and use security profile config servie to load credentials into soap header
