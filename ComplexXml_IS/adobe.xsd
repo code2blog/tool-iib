@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <xsd:element name="items">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="item">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="name" type="xsd:string" />
+              <xsd:element name="ppu" type="xsd:decimal" />
+              <xsd:element name="batters">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" name="batter">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:string">
+                            <xsd:attribute name="id" type="xsd:unsignedShort" use="required" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="table">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element maxOccurs="unbounded" name="tr">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element minOccurs="0" maxOccurs="unbounded" name="td" type="xsd:string" />
+                                <xsd:element minOccurs="0" maxOccurs="unbounded" name="th" type="xsd:string" />
+                              </xsd:sequence>
+                              <xsd:attribute name="repeat" type="xsd:string" use="optional" />
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name="bookstore">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element maxOccurs="unbounded" name="book">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="title">
+                                        <xsd:complexType>
+                                          <xsd:simpleContent>
+                                            <xsd:extension base="xsd:string">
+                                              <xsd:attribute name="lang" type="xsd:string" use="required" />
+                                            </xsd:extension>
+                                          </xsd:simpleContent>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                      <xsd:element name="author" type="xsd:string" />
+                                      <xsd:element name="year" type="xsd:unsignedShort" />
+                                      <xsd:element name="price" type="xsd:decimal" />
+                                    </xsd:sequence>
+                                    <xsd:attribute name="category" type="xsd:string" use="required" />
+                                  </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="root">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="child">
+                                        <xsd:complexType>
+                                          <xsd:sequence>
+                                            <xsd:element name="subchild">
+                                              <xsd:complexType>
+                                                <xsd:sequence>
+                                                  <xsd:element name="title">
+                                                    <xsd:complexType>
+                                                      <xsd:simpleContent>
+                                                        <xsd:extension base="xsd:string">
+                                                          <xsd:attribute name="lang" type="xsd:string" use="required" />
+                                                        </xsd:extension>
+                                                      </xsd:simpleContent>
+                                                    </xsd:complexType>
+                                                  </xsd:element>
+                                                  <xsd:element name="author" type="xsd:string" />
+                                                  <xsd:element name="year" type="xsd:unsignedShort" />
+                                                  <xsd:element name="price" type="xsd:decimal" />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                          </xsd:sequence>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                        <xsd:attribute name="class" type="xsd:string" use="required" />
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element maxOccurs="unbounded" name="topping">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:string">
+                      <xsd:attribute name="id" type="xsd:unsignedShort" use="required" />
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="id" type="xsd:unsignedByte" use="required" />
+            <xsd:attribute name="type" type="xsd:string" use="required" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  </xsd:schema>

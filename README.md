@@ -102,4 +102,7 @@ DemoMappingNode_IS
 XmlToCsv_APP
 	xc-1 : convert a message from xml to csv using dfdl
 	
+ComplexXml_IS
+	cx-1 : create a soap service with lots of inner fields in xml
+	
 </pre>

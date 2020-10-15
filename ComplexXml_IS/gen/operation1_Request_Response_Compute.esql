@@ -1,0 +1,10 @@
+BROKER SCHEMA gen
+DECLARE ns NAMESPACE 'http://ComplexXml_IS';
+
+CREATE COMPUTE MODULE operation1_Request_Response_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.XMLNSC.ns:operation1Response.output1 = 'was this complex enough';
+		RETURN TRUE;
+	END;
+END MODULE;
