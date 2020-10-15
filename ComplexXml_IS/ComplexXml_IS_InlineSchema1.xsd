@@ -140,12 +140,30 @@ xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schem
         <xsd:element name="MerchantRequest">
           <xsd:complexType>
             <xsd:sequence>
-              <xsd:element ref="art:BoardingFileFormat" />
-              <xsd:element ref="art:ClientId" />
-              <xsd:element ref="art:MaintainTerminalCommand" />
-              <xsd:element ref="art:Merchant" />
-              <xsd:element ref="art:ProcessorId" />
-              <xsd:element ref="art:TimeZone" />
+ <xsd:element name="BoardingFileFormat" type="xsd:string" />
+  <xsd:element name="ClientId" type="xsd:unsignedByte" />
+  <xsd:element name="MaintainTerminalCommand" type="xsd:unsignedByte" />
+  <xsd:element name="Merchant">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="FeeDiscountRate" />
+        <xsd:element name="MerchantBusiness" />
+        <xsd:element name="MerchantOwners" />
+        <xsd:element name="MerchantProfile">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="DBAName" type="xsd:unsignedByte" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="ProcessingHistory" />
+        <xsd:element name="Status" type="xsd:unsignedByte" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ProcessorId" type="xsd:unsignedByte" />
+  <xsd:element name="TimeZone" type="xsd:unsignedByte" />
+  
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>
