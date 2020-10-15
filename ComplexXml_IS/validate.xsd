@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
-<xs:schema xmlns:art="http://schemas.datacontract.org/2004/07/Artefacts.BoardPlus.ServiceModel"
+<xs:schema
+ xmlns:art="http://schemas.datacontract.org/2004/07/Artefacts.BoardPlus.ServiceModel"
 xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" 
-xmlns:tem="http://tempuri02.org/" attributeFormDefault="unqualified" elementFormDefault="qualified"
+xmlns:tem="http://tempuri02.org/" 
+attributeFormDefault="unqualified" elementFormDefault="qualified"
  xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="schema1.xsd" namespace="http://schemas.datacontract.org/2004/07/Artefacts.BoardPlus.ServiceModel" />
   <xs:element name="Validate">

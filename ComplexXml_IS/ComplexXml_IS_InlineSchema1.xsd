@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://ComplexXml_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://ComplexXml_IS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-    <xsd:include schemaLocation="validate.xsd"/>
+targetNamespace="http://ComplexXml_IS" 
+ xmlns:art="http://schemas.datacontract.org/2004/07/Artefacts.BoardPlus.ServiceModel"
+xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" 
+xmlns:tem="http://tempuri02.org/" 
+xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://ComplexXml_IS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <xsd:import schemaLocation="schema1.xsd" namespace="http://schemas.datacontract.org/2004/07/Artefacts.BoardPlus.ServiceModel" />
 
 	<xsd:element ibmSchExtn:docRoot="true" name="operation1">
 		<xsd:complexType>
@@ -130,7 +134,25 @@ targetNamespace="http://ComplexXml_IS" xmlns:ibmSchExtn="http://www.ibm.com/sche
 
     <xsd:element ibmSchExtn:docRoot="true" name="operation2InputParameter1" nillable="true">
     <xsd:complexType>
-			<xsd:sequence>                <xsd:element ref="tns:Validate" />
+			<xsd:sequence> <xsd:element name="Validate">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="MerchantRequest">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element ref="art:BoardingFileFormat" />
+              <xsd:element ref="art:ClientId" />
+              <xsd:element ref="art:MaintainTerminalCommand" />
+              <xsd:element ref="art:Merchant" />
+              <xsd:element ref="art:ProcessorId" />
+              <xsd:element ref="art:TimeZone" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="userToken" type="xsd:string" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
             </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
