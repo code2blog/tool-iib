@@ -1,0 +1,17 @@
+
+
+Importing file: C:\vishnu\app_group\repository\github_code2blog\tool-iib\ComplexXml_IS\ComplexXml_IS.wsdl
+
+The WSDL import will proceed with bindings ComplexXml_ISHttpBinding.
+Creating wsdl schema document for platform:/resource/ComplexXml_IS/ComplexXml_IS.wsdl.
+Parsing wsdl binding {http://ComplexXml_IS}ComplexXml_ISHttpBinding.
+Parsing wsdl binding input operation1.
+Parsing wsdl binding output operation1.
+Parsing wsdl binding input validate.
+Parsing wsdl binding output validate.
+Processing doc style for operation operation1.
+Processing doc style for operation validate.
+Populating WSDL schema ComplexXml_IS.xsd.
+Creating file ComplexXml_IS.xsd in the workspace.
+Creating file ComplexXml_IS_InlineSchema1.xsd in the workspace.
+Copying source WSDL ComplexXml_IS.wsdl to ComplexXml_IS.wsdl.

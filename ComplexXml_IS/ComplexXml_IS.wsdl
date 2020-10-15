@@ -2,11 +2,12 @@
   <wsdl:documentation>
     <wsdl:appinfo source="WMQI_APPINFO">
       <MRWSDLAppInfo imported="true">
-        <generatedXSD location="ComplexXml_IS_InlineSchema1.xsd"/>
         <binding hasEncoding="false" imported="true" name="ComplexXml_ISHttpBinding" originalBindingStyle="document"/>
+        <generatedXSD location="ComplexXml_IS_InlineSchema1.xsd"/>
       </MRWSDLAppInfo>
     </wsdl:appinfo>
   </wsdl:documentation>
+  
   <wsdl:types>
     
         <xsd:schema targetNamespace="http://ComplexXml_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
@@ -19,24 +20,43 @@
   <wsdl:message name="operation1ResponseMsg">
     <wsdl:part element="tns:operation1Response" name="operation1Result"/>
   </wsdl:message>
-  <wsdl:portType name="ComplexXml_IS">
+    <wsdl:message name="validateRequestMsg">
+    <wsdl:part element="tns:operation2InputParameter1" name="operation2InputParameter1"/>
+  </wsdl:message>
+    <wsdl:message name="validateResponseMsg">
+    <wsdl:part element="tns:operation2OutputParameter1" name="operation2OutputParameter1"/>
+  </wsdl:message>
+    <wsdl:portType name="ComplexXml_IS">
     <wsdl:operation name="operation1">
       <wsdl:input message="tns:operation1RequestMsg" name="operation1Request"/>
       <wsdl:output message="tns:operation1ResponseMsg" name="operation1Response"/>
     </wsdl:operation>
-  </wsdl:portType>
+        <wsdl:operation name="validate">
+      <wsdl:input message="tns:validateRequestMsg" name="validateRequest"/>
+      <wsdl:output message="tns:validateResponseMsg" name="validateResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
   <wsdl:binding name="ComplexXml_ISHttpBinding" type="tns:ComplexXml_IS">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="operation1">
-      <soap:operation soapAction=""/>
-      <wsdl:input name="operation1Request">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="operation1">
+            <soap:operation soapAction="http://ComplexXml_IS/operation1"/>
+            <wsdl:input name="operation1Request">
+                <soap:body use="literal"/>
+            </wsdl:input>
+      <wsdl:output name="operation1Response">
+                <soap:body use="literal"/>
+            </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="validate">
+      <soap:operation soapAction="http://ComplexXml_IS/validate"/>
+      <wsdl:input name="validateRequest">
         <soap:body use="literal"/>
       </wsdl:input>
-      <wsdl:output name="operation1Response">
+      <wsdl:output name="validateResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-  </wsdl:binding>
+    </wsdl:binding>
   <wsdl:service name="ComplexXml_ISHttpService">
     <wsdl:port binding="tns:ComplexXml_ISHttpBinding" name="ComplexXml_ISHttpPort">
       <soap:address location="http://localhost:7800/ComplexXml_IS"/>

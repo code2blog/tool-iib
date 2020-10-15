@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ComplexXml_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://ComplexXml_IS"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://ComplexXml_IS" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://ComplexXml_IS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <xsd:include schemaLocation="validate.xsd"/>
 
 	<xsd:element ibmSchExtn:docRoot="true" name="operation1">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="input1" nillable="true" type="xsd:string" />
+				<xsd:element name="input1" nillable="true" type="xsd:string"/>
 				<xsd:element name="items">
 					<xsd:complexType>
 						<xsd:sequence>
 							<xsd:element name="item">
 								<xsd:complexType>
 									<xsd:sequence>
-										<xsd:element name="name" type="xsd:string" />
-										<xsd:element name="ppu" type="xsd:string" />
+										<xsd:element name="name" type="xsd:string"/>
+										<xsd:element name="ppu" type="xsd:string"/>
 										<xsd:element name="batters">
 											<xsd:complexType>
 												<xsd:sequence>
@@ -21,7 +21,7 @@
 														<xsd:complexType>
 															<xsd:simpleContent>
 																<xsd:extension base="xsd:string">
-																	<xsd:attribute name="id" type="xsd:string" use="required" />
+																	<xsd:attribute name="id" type="xsd:string" use="required"/>
 																</xsd:extension>
 															</xsd:simpleContent>
 														</xsd:complexType>
@@ -32,10 +32,10 @@
 																<xsd:element maxOccurs="unbounded" name="tr">
 																	<xsd:complexType>
 																		<xsd:sequence>
-																			<xsd:element minOccurs="0" maxOccurs="unbounded" name="td" type="xsd:string" />
-																			<xsd:element minOccurs="0" maxOccurs="unbounded" name="th" type="xsd:string" />
+																			<xsd:element maxOccurs="unbounded" minOccurs="0" name="td" type="xsd:string"/>
+																			<xsd:element maxOccurs="unbounded" minOccurs="0" name="th" type="xsd:string"/>
 																		</xsd:sequence>
-																		<xsd:attribute name="repeat" type="xsd:string" use="optional" />
+																		<xsd:attribute name="repeat" type="xsd:string" use="optional"/>
 																	</xsd:complexType>
 																</xsd:element>
 																<xsd:element name="bookstore">
@@ -48,16 +48,16 @@
 																							<xsd:complexType>
 																								<xsd:simpleContent>
 																									<xsd:extension base="xsd:string">
-																										<xsd:attribute name="lang" type="xsd:string" use="required" />
+																										<xsd:attribute name="lang" type="xsd:string" use="required"/>
 																									</xsd:extension>
 																								</xsd:simpleContent>
 																							</xsd:complexType>
 																						</xsd:element>
-																						<xsd:element name="author" type="xsd:string" />
-																						<xsd:element name="year" type="xsd:string" />
-																						<xsd:element name="price" type="xsd:string" />
+																						<xsd:element name="author" type="xsd:string"/>
+																						<xsd:element name="year" type="xsd:string"/>
+																						<xsd:element name="price" type="xsd:string"/>
 																					</xsd:sequence>
-																					<xsd:attribute name="category" type="xsd:string" use="required" />
+																					<xsd:attribute name="category" type="xsd:string" use="required"/>
 																				</xsd:complexType>
 																			</xsd:element>
 																			<xsd:element name="root">
@@ -73,14 +73,14 @@
 																													<xsd:complexType>
 																														<xsd:simpleContent>
 																															<xsd:extension base="xsd:string">
-																																<xsd:attribute name="lang" type="xsd:string" use="required" />
+																																<xsd:attribute name="lang" type="xsd:string" use="required"/>
 																															</xsd:extension>
 																														</xsd:simpleContent>
 																													</xsd:complexType>
 																												</xsd:element>
-																												<xsd:element name="author" type="xsd:string" />
-																												<xsd:element name="year" type="xsd:string" />
-																												<xsd:element name="price" type="xsd:string" />
+																												<xsd:element name="author" type="xsd:string"/>
+																												<xsd:element name="year" type="xsd:string"/>
+																												<xsd:element name="price" type="xsd:string"/>
 																											</xsd:sequence>
 																										</xsd:complexType>
 																									</xsd:element>
@@ -94,7 +94,7 @@
 																	</xsd:complexType>
 																</xsd:element>
 															</xsd:sequence>
-															<xsd:attribute name="class" type="xsd:string" use="required" />
+															<xsd:attribute name="class" type="xsd:string" use="required"/>
 														</xsd:complexType>
 													</xsd:element>
 												</xsd:sequence>
@@ -104,14 +104,14 @@
 											<xsd:complexType>
 												<xsd:simpleContent>
 													<xsd:extension base="xsd:string">
-														<xsd:attribute name="id" type="xsd:string" use="required" />
+														<xsd:attribute name="id" type="xsd:string" use="required"/>
 													</xsd:extension>
 												</xsd:simpleContent>
 											</xsd:complexType>
 										</xsd:element>
 									</xsd:sequence>
-									<xsd:attribute name="id" type="xsd:string" use="required" />
-									<xsd:attribute name="type" type="xsd:string" use="required" />
+									<xsd:attribute name="id" type="xsd:string" use="required"/>
+									<xsd:attribute name="type" type="xsd:string" use="required"/>
 								</xsd:complexType>
 							</xsd:element>
 						</xsd:sequence>
@@ -123,9 +123,22 @@
 	<xsd:element ibmSchExtn:docRoot="true" name="operation1Response">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="output1" nillable="true" type="xsd:string" />
+				<xsd:element name="output1" nillable="true" type="xsd:string"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
 
+    <xsd:element ibmSchExtn:docRoot="true" name="operation2InputParameter1" nillable="true">
+    <xsd:complexType>
+			<xsd:sequence>                <xsd:element ref="tns:Validate" />
+            </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="operation2OutputParameter1" nillable="true">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string"/>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
 </xsd:schema>

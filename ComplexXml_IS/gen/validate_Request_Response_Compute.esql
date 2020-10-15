@@ -1,0 +1,11 @@
+BROKER SCHEMA gen
+
+
+CREATE COMPUTE MODULE validate_Request_Response_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.XMLNSC.ns:operation2OutputParameter1 = 'references used in xsd';
+		RETURN TRUE;
+	END;
+
+END MODULE;

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Artefacts.BoardPlus.ServiceModel" 
+attributeFormDefault="unqualified" 
+elementFormDefault="qualified" 
+targetNamespace="http://schemas.datacontract.org/2004/07/Artefacts.BoardPlus.ServiceModel" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="BoardingFileFormat" type="xs:string" />
+  <xs:element name="ClientId" type="xs:unsignedByte" />
+  <xs:element name="MaintainTerminalCommand" type="xs:unsignedByte" />
+  <xs:element name="Merchant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FeeDiscountRate" />
+        <xs:element name="MerchantBusiness" />
+        <xs:element name="MerchantOwners" />
+        <xs:element name="MerchantProfile">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DBAName" type="xs:unsignedByte" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ProcessingHistory" />
+        <xs:element name="Status" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessorId" type="xs:unsignedByte" />
+  <xs:element name="TimeZone" type="xs:unsignedByte" />
+</xs:schema>

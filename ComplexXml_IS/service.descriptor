@@ -7,6 +7,11 @@
           <service:flow location="gen/operation1_Request_Response.subflow" type="Request_Response"/>
         </service:flows>
       </service:operation>
+      <service:operation name="validate" type="request-response">
+        <service:flows>
+          <service:flow location="gen/validate_Request_Response.subflow" type="Request_Response"/>
+        </service:flows>
+      </service:operation>
     </service:operations>
     <service:errors>
       <service:flows>
