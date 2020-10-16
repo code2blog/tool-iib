@@ -38,7 +38,7 @@ public class PrepareTimeoutRequest extends MbJavaComputeNode {
 			
 			MbElement timeoutRequest = inAssembly.getLocalEnvironment().getRootElement().createElementAsLastChild(MbElement.TYPE_NAME, "TimeoutRequest", null);
 			set(timeoutRequest, "Action", "SET");
-			set(timeoutRequest, "Identifier", new Random().nextLong());
+			set(timeoutRequest, "Identifier", "UID"+new Random().nextLong());
 			set(timeoutRequest, "StartDate", startDate);
 			set(timeoutRequest, "StartTime", startTime);
 			set(timeoutRequest, "Count", new Long(1));
