@@ -105,5 +105,8 @@ XmlToCsv_APP
 	
 ComplexXml_IS
 	cx-1 : create a soap service with lots of inner fields in xml
+
+EDIFACT-D03B, EDIFACT-Common
+	edi-1 : demo use of edifact dfdl
 	
 </pre>

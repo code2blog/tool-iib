@@ -1,0 +1,1 @@
+this project was copied from https://github.com/ot4i/dfdl-edifact-tutorial/ 
