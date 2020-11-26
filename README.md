@@ -108,5 +108,8 @@ ComplexXml_IS
 
 EDIFACT-D03B, EDIFACT-Common
 	edi-1 : demo use of edifact dfdl
+
+EmailAttachmentsToFile_APP
+	ema-1 : save email attachments to a folder
 	
 </pre>

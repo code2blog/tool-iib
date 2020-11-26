@@ -1,0 +1,20 @@
+
+--
+BROKER SCHEMA com.wordpress.code2blog.emailattachmentstofile_app
+
+CREATE COMPUTE MODULE AcquireEmail_CheckForAttachments
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		FOR pPartIn AS InputRoot.MIME.Parts.Part[] DO
+			DECLARE sContentDisposition CHAR COALESCE(pPartIn."Content-Dispostion", pPartIn."Content-Disposition", '');
+			IF sContentDisposition <> '' THEN
+				SET OutputRoot.Properties = InputRoot.Properties;
+				SET OutputRoot.BLOB = pPartIn.Data.BLOB;
+				SET OutputLocalEnvironment.Destination.File.Name = TRANSLATE(SUBSTRING(sContentDisposition AFTER 'filename='), '";');
+				PROPAGATE TO TERMINAL 'out';
+			END IF;
+		END FOR;
+		RETURN FALSE;
+	END;
+
+END MODULE;
