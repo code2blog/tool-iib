@@ -10,7 +10,9 @@ CREATE COMPUTE MODULE InvokeSoapService_MF_Compute
 		-- Body Elements
 		SET OutputRoot.SOAP.Body.hel:SayHello.in = 'Vishnu';
 
-		SET OutputLocalEnvironment.Destination.SOAP.Request.Transport.HTTP.WebServiceURL = 'http://localhost:8888/hello';
+--		SET OutputLocalEnvironment.Destination.SOAP.Request.Transport.HTTP.WebServiceURL = 'http://localhost:8888/hello';
+--		SET OutputLocalEnvironment.Destination.SOAP.Request.Transport.HTTP.WebServiceURL = 'http://localhost:7800/hello';
+		SET OutputLocalEnvironment.Destination.SOAP.Request.Transport.HTTP.WebServiceURL = 'https://localhost:8081/https_webservice';
 		RETURN TRUE;
 	END;
 END MODULE;

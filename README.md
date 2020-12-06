@@ -60,7 +60,8 @@ SendEmail_V1_APP
 	
 WSSecurityDemo_V1_APP
 	wss-1 : invoke soap service and use security profile config servie to load credentials into soap header
-
+	wss-2 : invoke https service
+	
 ImageInCdata_APP
 	iica-1 : extract image from xml cdata and save as png file
 
