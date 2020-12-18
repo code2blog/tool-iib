@@ -112,5 +112,8 @@ EDIFACT-D03B, EDIFACT-Common
 
 EmailAttachmentsToFile_APP
 	ema-1 : save email attachments to a folder
+
+Encryption_APP
+	ea-1 : demo the use of triple des algorithm
 	
 </pre>
