@@ -1,0 +1,17 @@
+
+--
+BROKER SCHEMA code2blog.nomq_app
+
+CREATE COMPUTE MODULE InvokeRestApi_MF_BuildRequest
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.XMLNSC.root.child = 123;
+
+		SET OutputLocalEnvironment.Destination.REST.Request.Parameters.max = 10;
+		SET OutputLocalEnvironment.Destination.REST.Request.Parameters.filter = 'Fred Bloggs';
+		SET OutputLocalEnvironment.Destination.REST.Request.ContentType = 'application/x-www-form-urlencoded';
+		SET OutputLocalEnvironment.Destination.REST.Request.BaseURL = 'http://localhost:7800/mockservice_app/mockjsonresponse_mf';
+		RETURN TRUE;
+	END;
+
+END MODULE;

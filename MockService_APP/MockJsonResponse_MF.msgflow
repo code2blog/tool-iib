@@ -9,7 +9,7 @@
       <nodes xmi:type="ComIbmXslMqsi.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="235,20" stylesheetName="MockJsonResponse.xsl" messageDomainProperty="BLOB">
         <translation xmi:type="utility:ConstantString" string="XSL Transform"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" URLSpecifier="/mockservice_app/mockjsonresponse_mf">
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" URLSpecifier="/mockservice_app/mockjsonresponse_mf*">
         <translation xmi:type="utility:ConstantString" string="HTTP Input"/>
       </nodes>
       <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="352,20">
