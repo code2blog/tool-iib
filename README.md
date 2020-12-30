@@ -27,7 +27,7 @@ code2blog_dfdl_v2_slib
 EsqlFunctions_V1_IS
 	ef-1 -> demo programming in esql
 	ef-2 -> demo use of translate function
-	ef-3 -> regex through esql external proceduer call to java
+	ef-3 -> regex through esql external procedure call to java
 	ef-4 -> calcuate the size of your input soap message
 	
 NodeFeatures_V1_IS
