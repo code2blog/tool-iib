@@ -97,6 +97,7 @@ NoMQ_APP
 	nm-1 : demo how to access a webservice over http proxy
 	nm-2 : demo the use of rest request node
 	nm-3 : demo the use of validate node 
+	nm-4 : demo the use of http input node for xsd validation
 	
 ReadIIBFiles_APP
 	rf-1 : create a file explorer tool in iib, that can list folder contents and export directories as zip files
