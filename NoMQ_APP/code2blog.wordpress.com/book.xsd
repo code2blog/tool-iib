@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="code2blog.wordpress.com"
+ targetNamespace="code2blog.wordpress.com"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="year" type="xsd:int"/>
+  <xsd:element name="author" type="xsd:string"/>
+  <xsd:element name="price" type="xsd:decimal"/>
+  <xsd:element name="book">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="title"/>
+        <xsd:element ref="author"/>
+        <xsd:element ref="year"/>
+        <xsd:element ref="price"/>
+      </xsd:sequence>
+      <xsd:attribute name="category" type="xsd:string"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="title">
+    <xsd:complexType mixed="true">
+      <xsd:attribute name="lang" type="xsd:string"/>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

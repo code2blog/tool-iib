@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<book category="cooking"
+  xmlns="code2blog.wordpress.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="code2blog.wordpress.com book.xsd">
+  <title lang="en">Everyday Italian</title>
+  <author>Giada De Laurentiis</author>
+  <year>2005</year>
+  <price>30.00</price>
+</book>
