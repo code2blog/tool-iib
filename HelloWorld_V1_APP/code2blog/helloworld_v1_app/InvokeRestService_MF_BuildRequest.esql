@@ -29,6 +29,8 @@ CREATE COMPUTE MODULE InvokeRestService_MF_BuildRequest
 		SET pArrayOut.childOne.childTwo = 'code2blog';
 		SET pArrayOut.siblingOne = 'def';
 
+		SET OutputLocalEnvironment.Destination.REST.Request.BaseURL = 'http://localhost:7800/mockservice_app/mockjsonresponse_mf/url-is-overridden-with-this-setting';
+
 		RETURN TRUE;
 	END;
 
