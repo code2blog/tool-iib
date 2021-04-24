@@ -1,0 +1,7 @@
+
+--
+BROKER SCHEMA code2blog.helloworld_v1_app
+
+DECLARE SHARED_ROW SHARED ROW; 
+
+

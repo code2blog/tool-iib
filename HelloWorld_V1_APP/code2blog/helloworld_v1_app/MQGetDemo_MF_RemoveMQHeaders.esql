@@ -9,6 +9,10 @@ CREATE COMPUTE MODULE MQGetDemo_MF_RemoveMQHeaders
 		SET OutputRoot.Properties.Encoding = InputRoot.Properties.Encoding;
 		SET OutputRoot.Properties.ContentType = 'text/plain';
 		
-		SET OutputRoot.BLOB = InputRoot.BLOB;
+--		SET OutputRoot.BLOB = InputRoot.BLOB;
+		
+		SET SHARED_ROW.flow01.value = CURRENT_TIME;
+		SET OutputRoot.XMLNSC.root.SHARED_ROW = SHARED_ROW;
+		SET OutputRoot.XMLNSC.root.BLOB = InputRoot.BLOB;
 	END;
 END MODULE;
