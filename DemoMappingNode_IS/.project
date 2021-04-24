@@ -3,6 +3,7 @@
 	<name>DemoMappingNode_IS</name>
 	<comment></comment>
 	<projects>
+		<project>DemoMappingNode_ISJava</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

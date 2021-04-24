@@ -3,6 +3,7 @@
     <output path="/Customer_Infomsd.xsd"/>
     <namespaces>
         <namespace kind="supplement" prefix="in" uri="http://tempuri.org/CustomerInfo"/>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
     </namespaces>
     <generation engine="xquery"/>
     <mappingDeclaration name="Operation1_Request_Response_Mapping">
@@ -28,17 +29,25 @@
             <input path="$MessageAssembly/CustomerDetail/Items/Quantity"/>
             <output path="$MessageAssembly1/CustomerBill/OrderProductDetails/Quantity"/>
         </move>
-        <move automap="true">
+        <task type="todo">
             <input path="$MessageAssembly/CustomerDetail/OrderDate"/>
-            <output path="$MessageAssembly1/CustomerBill/OrderDate"/>
-        </move>
+        </task>
         <move automap="true">
             <input path="$MessageAssembly/CustomerDetail/ShippingDate"/>
             <output path="$MessageAssembly1/CustomerBill/ShippingDate"/>
         </move>
-        <move automap="true">
+        <task type="todo">
             <input path="$MessageAssembly/CustomerDetail/CustomerContact"/>
-            <output path="$MessageAssembly1/CustomerBill/CustomerContact"/>
-        </move>
+        </task>
+        <expression>
+            <input path="$MessageAssembly/CustomerDetail/Items/Category" var="Category"/>
+            <output path="$MessageAssembly1/CustomerBill/ShippingAddress"/>
+            <code lang="xpath">fn:concat(&#13;
+	fn:substring($Category,7,4), '-',&#13;
+	fn:substring($Category,4,2), '-',&#13;
+	fn:substring($Category,1,2)&#13;
+)&#13;
+</code>
+        </expression>
     </mappingDeclaration>
 </mappingRoot>

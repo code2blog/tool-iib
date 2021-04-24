@@ -14,5 +14,6 @@
       </nodes>
     </composition>
     <propertyOrganizer/>
+    <stickyBoard/>
   </eClassifiers>
 </ecore:EPackage>
