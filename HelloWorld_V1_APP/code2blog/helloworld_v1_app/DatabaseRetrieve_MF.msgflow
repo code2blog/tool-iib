@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmDatabaseRetrieve.msgnode="ComIbmDatabaseRetrieve.msgnode" xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode" xmlns:ComIbmWSReply.msgnode="ComIbmWSReply.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="code2blog/helloworld_v1_app/DatabaseRetrieve_MF.msgflow" nsPrefix="code2blog_helloworld_v1_app_DatabaseRetrieve_MF.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="DatabaseRetrieve_MF" bundleName="code2blog/helloworld_v1_app/DatabaseRetrieve_MF" pluginId="HelloWorld_V1_APP"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/HelloWorld_V1_APP/icons/full/obj16/DatabaseRetrieve_MF.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/HelloWorld_V1_APP/icons/full/obj30/DatabaseRetrieve_MF.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,20" URLSpecifier="/databaseretrieve_mf">
+        <translation xmi:type="utility:ConstantString" string="GET /databaseretrieve_mf"/>
+      </nodes>
+      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="508,20">
+        <translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
+      </nodes>
+      <nodes xmi:type="ComIbmDatabaseRetrieve.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="185,20" dataSourceName="localOracle" sqlQuery="SELECT DUAL.DUMMY&#xA;FROM DUAL&#xA;WHERE DUAL.DUMMY &lt;> 'vishnu'&#xA;ORDER BY DUAL.DUMMY ASC" tableNameComboValues="0,0,0,0,0,0~DUAL" columnNameComboValues="0,0,0,0,0,0~DUMMY" operatorComboValues="3,0,0,0,0,0~ASC" valueTypeComboValues="3,0,0,0,0,0~None" columnValueComboValues="0~DUAL.DUMMY">
+        <translation xmi:type="utility:ConstantString" string="Database Retrieve - localOracle"/>
+        <queryElements tableName="DUAL" columnName="DUMMY" operator="&lt;>" valueType="String" value="vishnu"/>
+        <queryElements tableName="DUAL" columnName="DUMMY" operator="ASC" valueType="None" value="None"/>
+        <dataElements columnName="DUAL.DUMMY" messageElement="$Environment/databaseRetrieve"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="388,20" computeExpression="esql://routine/code2blog.helloworld_v1_app#DatabaseRetrieve_MF_Build_Response.Main">
+        <translation xmi:type="utility:ConstantString" string="Build Response"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer/>
+    <stickyBoard/>
+  </eClassifiers>
+</ecore:EPackage>

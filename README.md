@@ -18,6 +18,7 @@ HelloWorld_V1_APP
 	hwa-7 -> invoke soap service and explain xsd validation options such as exception and exception list
 	hwa-8 -> demo the use of mq get node
 	hwa-9 -> demo the use of shared row variable
+	hwa-10 -> demo the use of database retrieve node
 	
 HelloWorld_V1_IS
 	hwi-1 -> expose soap webservice

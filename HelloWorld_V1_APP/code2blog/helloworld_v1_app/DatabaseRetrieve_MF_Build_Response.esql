@@ -1,0 +1,10 @@
+BROKER SCHEMA code2blog.helloworld_v1_app
+
+
+CREATE COMPUTE MODULE DatabaseRetrieve_MF_Build_Response
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.XMLNSC.root.databaseRetrieve = Environment.databaseRetrieve;
+		RETURN TRUE;
+	END;
+END MODULE;
