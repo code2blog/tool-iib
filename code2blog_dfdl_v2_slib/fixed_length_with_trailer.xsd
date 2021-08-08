@@ -19,18 +19,34 @@
 				</xsd:element>
                 				<xsd:element dfdl:initiator="body_" dfdl:lengthKind="implicit" dfdl:occursCountKind="implicit" maxOccurs="unbounded" name="body_animal">
           <xsd:complexType>
-            <xsd:sequence>
-              <xsd:element default="cat" dfdl:length="5" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="dog" name="type" type="xsd:string"/>
-              <xsd:element default="car crash" dfdl:length="15" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="bike accident" name="death_by" type="xsd:string"/>
-            </xsd:sequence>
+
+	<xsd:sequence>
+		<xsd:element default="cat" dfdl:length="5" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="dog" name="type" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:appinfo source="http://www.ogf.org/dfdl/">
+					<dfdl:discriminator test='{. eq "dog"}' />
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+   		<xsd:element default="car crash" dfdl:length="15" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="bike accident" name="death_by" type="xsd:string" />
+    </xsd:sequence>
+
           </xsd:complexType>
         </xsd:element>
                 <xsd:element dfdl:initiator="body_" dfdl:lengthKind="implicit" dfdl:occursCountKind="implicit" maxOccurs="unbounded" minOccurs="0" name="body_human">
 					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element default="woman" dfdl:length="5" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="man" name="type" type="xsd:string"/>
-                            						                        <xsd:element default="car crash" dfdl:length="15" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="bike accident" name="death_by" type="xsd:string"/>
-                        </xsd:sequence>
+	
+	<xsd:sequence>
+		<xsd:element default="woman" dfdl:length="5" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="man" name="type" type="xsd:string">
+			<xsd:annotation>
+				<xsd:appinfo source="http://www.ogf.org/dfdl/">
+					<dfdl:discriminator test='{. eq "man"}' />
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:element>
+        <xsd:element default="car crash" dfdl:length="15" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="bike accident" name="death_by" type="xsd:string"/> 
+    </xsd:sequence>
+	
 					</xsd:complexType>
 				</xsd:element>
                 				                <xsd:element dfdl:initiator="trail_" dfdl:lengthKind="delimited" name="trailer"> 
