@@ -13,25 +13,34 @@
 				<xsd:element dfdl:initiator="head_" dfdl:lengthKind="delimited" name="header">
 					<xsd:complexType>
 						<xsd:sequence>
-							<xsd:element dfdl:length="10" ibmDfdlExtn:sampleValue="head_valu1" name="head_elem1" type="xsd:string"/>
+							<xsd:element dfdl:length="10" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="head_valu1" name="head_elem1" type="xsd:string"/>
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
-				<xsd:element dfdl:initiator="body_" dfdl:lengthKind="delimited" dfdl:occursCountKind="implicit" maxOccurs="unbounded" name="body">
+                				<xsd:element dfdl:initiator="body_" dfdl:lengthKind="implicit" dfdl:occursCountKind="implicit" maxOccurs="unbounded" name="body_animal">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element default="cat" dfdl:length="5" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="dog" name="type" type="xsd:string"/>
+              <xsd:element default="car crash" dfdl:length="15" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="bike accident" name="death_by" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+                <xsd:element dfdl:initiator="body_" dfdl:lengthKind="implicit" dfdl:occursCountKind="implicit" maxOccurs="unbounded" minOccurs="0" name="body_human">
 					<xsd:complexType>
 						<xsd:sequence>
-							<xsd:element dfdl:length="10" ibmDfdlExtn:sampleValue="body_valu1" name="body_elem1" type="xsd:string"/>
-						</xsd:sequence>
+							<xsd:element default="woman" dfdl:length="5" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="man" name="type" type="xsd:string"/>
+                            						                        <xsd:element default="car crash" dfdl:length="15" dfdl:lengthUnits="characters" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="bike accident" name="death_by" type="xsd:string"/>
+                        </xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
-				<xsd:element dfdl:initiator="trail_" dfdl:lengthKind="delimited" name="trailer"> 
+                				                <xsd:element dfdl:initiator="trail_" dfdl:lengthKind="delimited" name="trailer"> 
 					<xsd:complexType>
 						<xsd:sequence>
-							<xsd:element dfdl:length="13" ibmDfdlExtn:sampleValue="trailer_valu1" name="trailer_elem1" type="xsd:string"/>
+							<xsd:element dfdl:length="13" dfdl:textPadKind="padChar" ibmDfdlExtn:sampleValue="trailer_valu1" name="trailer_elem1" type="xsd:string"/>
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
-			</xsd:sequence>
+                			            </xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
 

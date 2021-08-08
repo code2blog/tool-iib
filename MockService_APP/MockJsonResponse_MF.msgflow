@@ -6,16 +6,16 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/MockService_APP/icons/full/obj16/MockJsonResponse_MF.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/MockService_APP/icons/full/obj30/MockJsonResponse_MF.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmXslMqsi.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="235,20" stylesheetName="MockJsonResponse.xsl" messageDomainProperty="BLOB">
+      <nodes xmi:type="ComIbmXslMqsi.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="399,20" stylesheetName="vishnu-local-ta-response-01.xsl" messageDomainProperty="BLOB">
         <translation xmi:type="utility:ConstantString" string="XSL Transform"/>
       </nodes>
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" URLSpecifier="/mockservice_app/mockjsonresponse_mf*">
-        <translation xmi:type="utility:ConstantString" string="HTTP Input"/>
+        <translation xmi:type="utility:ConstantString" string="/mockservice_app/mockjsonresponse_mf*"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="352,20">
+      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="516,20">
         <translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="111,20" computeExpression="esql://routine/#MockJsonResponse_MF_BuildXmlForXslt.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="275,20" computeExpression="esql://routine/#MockJsonResponse_MF_BuildXmlForXslt.Main">
         <translation xmi:type="utility:ConstantString" string="BuildXmlForXslt"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>

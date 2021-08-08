@@ -25,6 +25,7 @@ HelloWorld_V1_IS
 	
 code2blog_dfdl_v2_slib
 	dfdl-1 -> create message model for fixed length data
+	dfdl-2 -> demo the use of discriminator annotation
 	
 EsqlFunctions_V1_IS
 	ef-1 -> demo programming in esql
